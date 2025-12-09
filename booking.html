@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Book Your Appointment - LMRSTUDIO">
+  <title>Booking - LMRSTUDIO</title>
+  <link rel="stylesheet" href="/src/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <div class="logo">LMRSTUDIO</div>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="services.html" class="nav-link">Services</a></li>
+        <li><a href="pricing.html" class="nav-link">Pricing</a></li>
+        <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+        <li><a href="booking.html" class="nav-link">Booking</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+        <li><a href="policy.html" class="nav-link">Policy</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <section class="booking">
+      <div class="container">
+        <div class="section-header">
+          <h1 class="section-title">Book Your Appointment</h1>
+          <div class="section-divider"></div>
+          <p class="section-description">Let's create your perfect look</p>
+        </div>
+
+        <div class="booking-container">
+          <form id="bookingForm" class="booking-form">
+            <div class="form-group">
+              <label for="clientName">Full Name *</label>
+              <input type="text" id="clientName" name="clientName" required placeholder="Enter your full name">
+            </div>
+
+            <div class="form-group">
+              <label for="contact">Contact (Phone or Email) *</label>
+              <input type="text" id="contact" name="contact" required placeholder="Phone number or email">
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="bookingDate">Preferred Date *</label>
+                <input type="date" id="bookingDate" name="bookingDate" required>
+              </div>
+              <div class="form-group">
+                <label for="bookingTime">Preferred Time *</label>
+                <input type="time" id="bookingTime" name="bookingTime" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="skinType">Skin Type *</label>
+              <select id="skinType" name="skinType" required>
+                <option value="">Select your skin type</option>
+                <option value="Dark">Dark</option>
+                <option value="Light">Light</option>
+                <option value="Caramel">Caramel</option>
+                <option value="Fair">Fair</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="makeupStyle">Makeup Style *</label>
+              <select id="makeupStyle" name="makeupStyle" required>
+                <option value="">Select your preferred style</option>
+                <option value="Soft Glam">Soft Glam</option>
+                <option value="Bratz">Bratz</option>
+                <option value="Barbie">Barbie</option>
+                <option value="Dark">Dark (Black Eyeshadow)</option>
+                <option value="Baddie Beat">Baddie Beat</option>
+                <option value="Paint Me Down">Paint Me Down</option>
+                <option value="Extra Blush">Extra Blush</option>
+                <option value="Custom">Custom Design</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="serviceType">Service Type *</label>
+              <select id="serviceType" name="serviceType" required>
+                <option value="">Select service type</option>
+                <option value="Student">Student (6,000 CFA)</option>
+                <option value="Standard">Standard (8,000 CFA)</option>
+                <option value="Home Service">Home Service (10,000 CFA)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="additionalNotes">Additional Notes (Optional)</label>
+              <textarea id="additionalNotes" name="additionalNotes" rows="4" placeholder="Tell us anything special about your booking or any specific requests"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-submit">Send to WhatsApp</button>
+            <p class="form-note">Click to send your booking details to WhatsApp for confirmation</p>
+          </form>
+
+          <div style="margin-top: 40px; padding: 30px; background: #f9f7f4; border-radius: 8px;">
+            <h3>Booking Information</h3>
+            <ul style="margin: 20px 0; padding-left: 20px; line-height: 1.8;">
+              <li style="margin: 10px 0;">Book at least 48 hours in advance for best availability</li>
+              <li style="margin: 10px 0;">A 50% deposit is required to secure your booking</li>
+              <li style="margin: 10px 0;">Payments accepted: Mobile money, bank transfer, cash</li>
+              <li style="margin: 10px 0;">Please arrive 10 minutes before your appointment time</li>
+              <li style="margin: 10px 0;">Cancellations must be made 24 hours in advance</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <h3>LMRSTUDIO</h3>
+          <p>Where Beauty Meets Artistry</p>
+        </div>
+        <div class="footer-links">
+          <div class="footer-column">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="about.html">About</a></li>
+              <li><a href="services.html">Services</a></li>
+              <li><a href="pricing.html">Pricing</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4>More</h4>
+            <ul>
+              <li><a href="gallery.html">Gallery</a></li>
+              <li><a href="booking.html">Booking</a></li>
+              <li><a href="contact.html">Contact</a></li>
+              <li><a href="policy.html">Policy</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4>Contact</h4>
+            <ul>
+              <li>Cotonou, Benin Republic</li>
+              <li>+229 01 56 15 98 05</li>
+              <li>Lamourp23@gmail.com</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 LMRSTUDIO. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio Gallery - LMRSTUDIO Professional Makeup Transformations">
+  <title>Gallery - LMRSTUDIO</title>
+  <link rel="stylesheet" href="/src/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <div class="logo">LMRSTUDIO</div>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="services.html" class="nav-link">Services</a></li>
+        <li><a href="pricing.html" class="nav-link">Pricing</a></li>
+        <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+        <li><a href="booking.html" class="nav-link">Booking</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+        <li><a href="policy.html" class="nav-link">Policy</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <section class="gallery">
+      <div class="container">
+        <div class="section-header">
+          <h1 class="section-title">Portfolio Gallery</h1>
+          <div class="section-divider"></div>
+          <p class="section-description">View our stunning transformations and get inspired</p>
+        </div>
+
+        <div class="gallery-carousel">
+          <div class="carousel-container">
+            <button class="carousel-btn prev" id="prevBtn" aria-label="Previous image">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="15 18 9 12 15 6"/>
+              </svg>
+            </button>
+            <div class="carousel-track" id="carouselTrack">
+              <div class="carousel-slide active">
+                <img src="/images/gallery/photo_1_2025-12-03_21-19-13.jpg" alt="Professional makeup transformation">
+              </div>
+              <div class="carousel-slide">
+                <img src="/images/gallery/photo_1_2025-12-03_21-03-05.jpg" alt="Soft glam makeup look">
+              </div>
+              <div class="carousel-slide">
+                <img src="/images/gallery/photo_2_2025-12-03_21-03-05.jpg" alt="Studio makeup session">
+              </div>
+              <div class="carousel-slide">
+                <img src="/images/gallery/photo_5_2025-12-03_21-03-05.jpg" alt="Baddie beat makeup">
+              </div>
+              <div class="carousel-slide">
+                <img src="/images/gallery/photo_1_2025-12-04_13-53-14.jpg" alt="Bridal makeup look">
+              </div>
+            </div>
+            <button class="carousel-btn next" id="nextBtn" aria-label="Next image">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="9 18 15 12 9 6"/>
+              </svg>
+            </button>
+          </div>
+          <div class="carousel-dots" id="carouselDots"></div>
+        </div>
+
+        <div style="margin-top: 60px; padding: 40px; background: #f9f7f4; border-radius: 8px;">
+          <h2>Our Portfolio Highlights</h2>
+
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 30px;">
+            <div style="text-align: center;">
+              <div style="font-size: 40px; margin-bottom: 10px;">✨</div>
+              <h3 style="color: #2a2a2a;">Soft Glam</h3>
+              <p>Natural, elegant looks for everyday and professional settings. Enhanced beauty that's timeless and sophisticated.</p>
+            </div>
+
+            <div style="text-align: center;">
+              <div style="font-size: 40px; margin-bottom: 10px;">💎</div>
+              <h3 style="color: #2a2a2a;">Bratz</h3>
+              <p>Bold, statement-making looks with dramatic features. Perfect for those who want to stand out and be noticed.</p>
+            </div>
+
+            <div style="text-align: center;">
+              <div style="font-size: 40px; margin-bottom: 10px;">🩷</div>
+              <h3 style="color: #2a2a2a;">Barbie</h3>
+              <p>Glamorous pink-toned looks with flawless finishes. Feminine, playful, and utterly fabulous.</p>
+            </div>
+
+            <div style="text-align: center;">
+              <div style="font-size: 40px; margin-bottom: 10px;">🖤</div>
+              <h3 style="color: #2a2a2a;">Dark/Smokey</h3>
+              <p>Sultry, dramatic looks for evening events. Sophisticated and mysteriously beautiful.</p>
+            </div>
+
+            <div style="text-align: center;">
+              <div style="font-size: 40px; margin-bottom: 10px;">🔥</div>
+              <h3 style="color: #2a2a2a;">Baddie Beat</h3>
+              <p>Confident, bold looks with sharp definition. For anyone who wants to feel fierce and empowered.</p>
+            </div>
+
+            <div style="text-align: center;">
+              <div style="font-size: 40px; margin-bottom: 10px;">🎨</div>
+              <h3 style="color: #2a2a2a;">Custom Designs</h3>
+              <p>Unique, artistic looks created just for you. Your vision brought to life by our talented artists.</p>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top: 60px; padding: 40px; background: #f9f7f4; border-radius: 8px; text-align: center;">
+          <h2>See Yourself In Our Gallery</h2>
+          <p style="margin: 20px 0; font-size: 18px; color: #666;">Inspired by our work? Let's create your own stunning transformation</p>
+          <a href="booking.html" class="btn btn-primary">Book Your Transformation</a>
+        </div>
+
+        <div style="margin-top: 60px; padding: 40px; background: #f9f7f4; border-radius: 8px;">
+          <h2>Why Choose LMRSTUDIO?</h2>
+          <ul style="margin: 30px 0; padding-left: 20px; font-size: 16px; line-height: 1.8;">
+            <li style="margin: 15px 0;">✓ Professional makeup artists with years of experience</li>
+            <li style="margin: 15px 0;">✓ All skin tones beautifully enhanced</li>
+            <li style="margin: 15px 0;">✓ Premium products used for all applications</li>
+            <li style="margin: 15px 0;">✓ Personalized consultations for your unique style</li>
+            <li style="margin: 15px 0;">✓ Portfolio of stunning transformations</li>
+            <li style="margin: 15px 0;">✓ Studio and home service options</li>
+            <li style="margin: 15px 0;">✓ Affordable pricing without compromising quality</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <h3>LMRSTUDIO</h3>
+          <p>Where Beauty Meets Artistry</p>
+        </div>
+        <div class="footer-links">
+          <div class="footer-column">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="about.html">About</a></li>
+              <li><a href="services.html">Services</a></li>
+              <li><a href="pricing.html">Pricing</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4>More</h4>
+            <ul>
+              <li><a href="gallery.html">Gallery</a></li>
+              <li><a href="booking.html">Booking</a></li>
+              <li><a href="contact.html">Contact</a></li>
+              <li><a href="policy.html">Policy</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4>Contact</h4>
+            <ul>
+              <li>Cotonou, Benin Republic</li>
+              <li>+229 01 56 15 98 05</li>
+              <li>Lamourp23@gmail.com</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 LMRSTUDIO. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
