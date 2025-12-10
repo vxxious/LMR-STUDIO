@@ -1,3 +1,4 @@
+import './style.css'
 const ready = () => {
 const mobileToggle = document.getElementById('mobileToggle')
 const navMenu = document.getElementById('navMenu')
@@ -114,7 +115,7 @@ msg += '\nAdditional notes: ' + additionalNotes
 
 msg += '\n\nPlease confirm availability. Thank you.'
 
-  window.open('https://wa.me/+22956159805?text=' + encodeURIComponent(msg), '_blank')
+  window.open('https://wa.me/22956159805?text=' + encodeURIComponent(msg), '_blank')
   bookingForm.reset()
 })
 
