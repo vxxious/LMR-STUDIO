@@ -34,6 +34,8 @@ const nextBtn = document.getElementById('nextBtn')
 const carouselDots = document.getElementById('carouselDots')
 const slides = document.querySelectorAll('.carousel-slide')
 
+
+
 if (carouselTrack && slides.length && prevBtn && nextBtn && carouselDots) {
 let currentSlide = 0
 const totalSlides = slides.length
