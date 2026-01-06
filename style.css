@@ -32,6 +32,7 @@ body {
   color: var(--dark-grey);
   background-color: var(--white);
   overflow-x: hidden;
+  padding-top: 72px;
 }
 
 .container {

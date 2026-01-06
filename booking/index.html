@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Book Your Appointment - LMRSTUDIO">
   <title>Booking - LMRSTUDIO</title>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -20,14 +20,14 @@
         <span></span>
       </button>
       <ul class="nav-menu" id="navMenu">
-        <li><a href="index.html" class="nav-link">Home</a></li>
-        <li><a href="about.html" class="nav-link">About</a></li>
-        <li><a href="services.html" class="nav-link">Services</a></li>
-        <li><a href="pricing.html" class="nav-link">Pricing</a></li>
-        <li><a href="gallery.html" class="nav-link">Gallery</a></li>
-        <li><a href="booking.html" class="nav-link">Booking</a></li>
-        <li><a href="contact.html" class="nav-link">Contact</a></li>
-        <li><a href="policy.html" class="nav-link">Policy</a></li>
+        <li><a href="/" class="nav-link">Home</a></li>
+        <li><a href="/about/index.html" class="nav-link">About</a></li>
+        <li><a href="/services/index.html" class="nav-link">Services</a></li>
+        <li><a href="/pricing/index.html" class="nav-link">Pricing</a></li>
+        <li><a href="/gallery/index.html" class="nav-link">Gallery</a></li>
+        <li><a href="/booking/index.html" class="nav-link">Booking</a></li>
+        <li><a href="/contact/index.html" class="nav-link">Contact</a></li>
+        <li><a href="/policy/index.html" class="nav-link">Policy</a></li>
       </ul>
     </div>
   </nav>
@@ -42,7 +42,7 @@
         </div>
 
         <div class="booking-container">
-          <form id="bookingForm" class="booking-form">
+         <form id="bookingForm" action="#" method="post">
             <div class="form-group">
               <label for="clientName">Full Name *</label>
               <input type="text" id="clientName" name="clientName" required placeholder="Enter your full name">
@@ -87,6 +87,12 @@
                 <option value="Baddie Beat">Baddie Beat</option>
                 <option value="Paint Me Down">Paint Me Down</option>
                 <option value="Extra Blush">Extra Blush</option>
+                <option value="Asoebi Glam">Asoebi Glam</option>
+                <option value="Birthday Glam">Birthday Glam</option>
+                <option value="Bridal">Bridal</option>
+                <option value="Photoshoot">Photoshoot</option>
+                <option value="Natural Look">Natural Look</option>
+                <option value="Convocation Glam">Convocation Glam</option>
                 <option value="Custom">Custom Design</option>
               </select>
             </div>
@@ -95,9 +101,9 @@
               <label for="serviceType">Service Type *</label>
               <select id="serviceType" name="serviceType" required>
                 <option value="">Select service type</option>
-                <option value="Student">Student (6,000 CFA)</option>
-                <option value="Standard">Standard (8,000 CFA)</option>
-                <option value="Home Service">Home Service (10,000 CFA)</option>
+                <option value="Student">Student (7,000 CFA)</option>
+                <option value="Standard">Standard (9,000 CFA)</option>
+                <option value="Home Service">Home Service (15,000 CFA)</option>
               </select>
             </div>
 
@@ -125,48 +131,41 @@
     </section>
   </main>
 
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-brand">
-          <h3>LMRSTUDIO</h3>
-          <p>Where Beauty Meets Artistry</p>
-        </div>
-        <div class="footer-links">
-          <div class="footer-column">
-            <h4>Quick Links</h4>
-            <ul>
-              <li><a href="index.html">Home</a></li>
-              <li><a href="about.html">About</a></li>
-              <li><a href="services.html">Services</a></li>
-              <li><a href="pricing.html">Pricing</a></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>More</h4>
-            <ul>
-              <li><a href="gallery.html">Gallery</a></li>
-              <li><a href="booking.html">Booking</a></li>
-              <li><a href="contact.html">Contact</a></li>
-              <li><a href="policy.html">Policy</a></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Contact</h4>
-            <ul>
-              <li>Cotonou, Benin Republic</li>
-              <li>+229 01 56 15 98 05</li>
-              <li>Lamourp23@gmail.com</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>&copy; 2024 LMRSTUDIO. All rights reserved.</p>
-      </div>
+ <div class="footer-links">
+  <div class="footer-column">
+    <h4>Quick Links</h4>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/about/index.html">About</a></li>
+      <li><a href="/services/index.html">Services</a></li>
+      <li><a href="/pricing/index.html">Pricing</a></li>
+    </ul>
+  </div>
+  <div class="footer-column">
+    <h4>More</h4>
+    <ul>
+      <li><a href="/gallery/index.html">Gallery</a></li>
+      <li><a href="/booking/index.html">Booking</a></li>
+      <li><a href="/contact/index.html">Contact</a></li>
+      <li><a href="/policy/index.html">Policy</a></li>
+    </ul>
+  </div>
+  <div class="footer-column">
+    <h4>Contact</h4>
+    <ul>
+      <li>Cotonou, Benin Republic</li>
+      <li>+229 01 90 14 62 36</li>
+      <li>Lamourp23@gmail.com</li>
+    </ul>
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <p>&copy; 2024 LMRSTUDIO. All rights reserved.</p>
     </div>
-  </footer>
-
-  <script type="module" src="./main.js"></script>
+  </div>
+</footer>
+<script src="../main.js"></script>
 </body>
 </html>

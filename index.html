@@ -20,18 +20,16 @@
         <span></span>
       </button>
       <ul class="nav-menu" id="navMenu">
-        <li><a href="/index.html" class="nav-link">Home</a></li>
-        <li><a href="/about.html" class="nav-link">About</a></li>
-        <li><a href="/services.html" class="nav-link">Services</a></li>
-        <li><a href="/pricing.html" class="nav-link">Pricing</a></li>
-        <li><a href="/gallery.html" class="nav-link">Gallery</a></li>
-        <li><a href="/booking.html" class="nav-link">Booking</a></li>
-        <li><a href="/contact.html" class="nav-link">Contact</a></li>
-        <li><a href="/policy.html" class="nav-link">Policy</a></li>
+        <li><a href="/" class="nav-link">Home</a></li>
+        <li><a href="/about/index.html" class="nav-link">About</a></li>
+        <li><a href="/services/index.html" class="nav-link">Services</a></li>
+        <li><a href="/pricing/index.html" class="nav-link">Pricing</a></li>
+        <li><a href="/gallery/index.html" class="nav-link">Gallery</a></li>
+        <li><a href="/booking/index.html" class="nav-link">Booking</a></li>
+        <li><a href="/contact/index.html" class="nav-link">Contact</a></li>
+        <li><a href="/policy/index.html" class="nav-link">Policy</a></li>
       </ul>
-    </div>
   </nav>
-
   <section id="home" class="hero">
     <div class="hero-overlay"></div>
     <div class="hero-content">
@@ -39,8 +37,8 @@
       <p class="hero-subtitle">Where Beauty Meets Artistry</p>
       <p class="hero-description">Professional Makeup & Glam Services for Every Occasion</p>
       <div class="hero-buttons">
-        <a href="booking.html" class="btn btn-primary">Book Appointment</a>
-        <a href="gallery.html" class="btn btn-secondary">View Portfolio</a>
+        <a href="/booking/index.html" class="btn btn-primary">Book Appointment</a>
+        <a href="/gallery/index.html" class="btn btn-secondary">View Portfolio</a> 
       </div>
     </div>
     <div class="scroll-indicator">
@@ -153,7 +151,7 @@
         <div class="pricing-card">
           <div class="pricing-badge">Popular</div>
           <h3>Student</h3>
-          <div class="price">6,000 <span>CFA</span></div>
+          <div class="price">7,000 <span>CFA</span></div>
           <ul class="pricing-features">
             <li>All makeup styles available</li>
             <li>Student-friendly pricing</li>
@@ -161,12 +159,12 @@
             <li>Professional products</li>
             <li>Valid student ID required</li>
           </ul>
-          <a href="booking.html" class="btn btn-primary">Book Now</a>
+          <a href="/booking/index.html" class="btn btn-primary">Book Now</a>
         </div>
         <div class="pricing-card featured">
           <div class="pricing-badge">Best Value</div>
           <h3>Standard</h3>
-          <div class="price">8,000 <span>CFA</span></div>
+          <div class="price">9,000 <span>CFA</span></div>
           <ul class="pricing-features">
             <li>All makeup styles available</li>
             <li>Premium products</li>
@@ -174,12 +172,12 @@
             <li>Professional consultation</li>
             <li>Touch-up tips included</li>
           </ul>
-          <a href="booking.html" class="btn btn-primary">Book Now</a>
+          <a href="/booking/index.html" class="btn btn-primary">Book Now</a>
         </div>
         <div class="pricing-card">
           <div class="pricing-badge">Premium</div>
           <h3>Home Service</h3>
-          <div class="price">10,000 <span>CFA</span></div>
+          <div class="price">15,000 <span>CFA</span></div>
           <ul class="pricing-features">
             <li>All makeup styles available</li>
             <li>Service at your location</li>
@@ -187,7 +185,7 @@
             <li>Flexible scheduling</li>
             <li>Travel included</li>
           </ul>
-          <a href="booking.html" class="btn btn-primary">Book Now</a>
+          <a href="/booking/index.html" class="btn btn-primary">Book Now</a>
         </div>
       </div>
     </div>
@@ -279,6 +277,12 @@
               <option value="Dark">Dark (Black Eyeshadow)</option>
               <option value="Baddie Beat">Baddie Beat</option>
               <option value="Paint Me Down">Paint Me Down</option>
+              <option value="Asoebi Glam">Asoebi Glam</option>
+                <option value="Birthday Glam">Birthday Glam</option>
+                <option value="Bridal">Bridal</option>
+                <option value="Photoshoot">Photoshoot</option>
+                <option value="Natural Look">Natural Look</option>
+                <option value="Convocation Glam">Convocation Glam</option>
               <option value="Extra Blush">Extra Blush</option>
             </select>
           </div>
@@ -286,9 +290,9 @@
             <label for="serviceType">Service Type</label>
             <select id="serviceType" name="serviceType" required>
               <option value="">Select service type</option>
-              <option value="Student">Student (6,000 CFA)</option>
-              <option value="Standard">Standard (8,000 CFA)</option>
-              <option value="Home Service">Home Service (10,000 CFA)</option>
+              <option value="Student">Student (7,000 CFA)</option>
+              <option value="Standard">Standard (9,000 CFA)</option>
+              <option value="Home Service">Home Service (15,000 CFA)</option>
             </select>
           </div>
           <button type="submit" class="btn btn-primary btn-submit">Send to WhatsApp</button>
@@ -315,7 +319,7 @@
             </div>
             <div>
               <h3>Phone</h3>
-              <a href="tel:+2290156159805">+229 01 56 15 98 05</a>
+              <a href="tel:+2290190146236">+229 01 90 14 62 36</a>
             </div>
           </div>
           <div class="contact-item">
@@ -401,38 +405,69 @@
         <p class="section-description">Please read our terms and conditions</p>
       </div>
       <div class="policy-content">
-        <div class="policy-section">
-          <h3>Booking Information</h3>
-          <p>All appointments must be booked in advance. We recommend booking at least 48 hours before your desired date to ensure availability.</p>
-        </div>
-        <div class="policy-section">
-          <h3>Deposits</h3>
-          <p>A non-refundable deposit of 50% is required to secure your booking. The remaining balance is due on the day of service. Deposits can be paid via mobile money or bank transfer.</p>
-        </div>
-        <div class="policy-section">
-          <h3>Timing & Punctuality</h3>
-          <p>Please arrive 10 minutes before your scheduled appointment. Late arrivals may result in shortened service time or rescheduling. If you're running late, please contact us immediately.</p>
-        </div>
-        <div class="policy-section">
-          <h3>Guest Policy</h3>
-          <p>For studio appointments, we ask that you limit guests to maintain a professional and focused environment. For home service appointments, please ensure a clean, well-lit area is available for the makeup application.</p>
-        </div>
-        <div class="policy-section">
-          <h3>Date Changes & Cancellations</h3>
-          <p>If you need to reschedule, please provide at least 24 hours notice. Cancellations made less than 24 hours before your appointment will forfeit the deposit. Rescheduling is subject to availability.</p>
-        </div>
-        <div class="policy-section">
-          <h3>Home Service Terms</h3>
-          <p>Home service appointments require a valid address within the Cotonou area. Additional travel fees may apply for locations outside the standard service area. Please ensure adequate lighting and a suitable workspace is available.</p>
-        </div>
-        <div class="policy-section">
-          <h3>Student Discount</h3>
-          <p>Student pricing is available with valid student ID presented at the time of booking and appointment. This discount cannot be combined with other offers.</p>
-        </div>
-        <div class="policy-section">
-          <h3>Health & Safety</h3>
-          <p>Please inform us of any allergies, skin sensitivities, or medical conditions that may affect the makeup application. We use professional, high-quality products, but cannot guarantee against all allergic reactions.</p>
-        </div>
+  <div class="policy-section">
+    <h3>Booking Policy</h3>
+    <p>We operate strictly by booking only. Walk-ins are not accepted, NO REFUND after payment is made.</p>
+  </div>
+
+  <div class="policy-section">
+    <h3>Working Hours</h3>
+    <p>Our working hours are 9:00AM to 11:00PM.</p>
+    <p style="margin-top: 10px;">Earlier or later bookings attract extra charges.</p>
+  </div>
+
+  <div class="policy-section">
+    <h3>Deposit & Payment</h3>
+    <p>A 70% deposit is required to secure your slot. This deposit is NON-REFUNDABLE.</p>
+    <p style="margin-top: 10px;">The remaining balance must be paid on or before your appointment.</p>
+  </div>
+
+  <div class="policy-section">
+    <h3>Date Changes</h3>
+    <p>Date change is allowed once only.</p>
+    <p style="margin-top: 10px;">Any further change attracts a fee.</p>
+    <p style="margin-top: 10px;">Date changes within 48 hours attract a fee.</p>
+  </div>
+
+  <div class="policy-section">
+    <h3>Punctuality & Time Charges</h3>
+    <p>Please be punctual.</p>
+    <p style="margin-top: 10px;">Arrivals later than 10 minutes attract a late fee.</p>
+    <p style="margin-top: 10px;">Extended hours attract additional charges.</p>
+  </div>
+
+  <div class="policy-section">
+    <h3>Home Service</h3>
+    <p>Clients must be fully ready before my arrival.</p>
+    <p style="margin-top: 10px;">Waiting time over 15 minutes attracts extra charges.</p>
+  </div>
+
+  <div class="policy-section">
+    <h3>Studio Rules</h3>
+    <ul style="margin: 10px 0; padding-left: 20px;">
+      <li>No touching of products without consent.</li>
+      <li>No toilet use.</li>
+      <li>Personal items must not remain beyond 24 hours (₦500/CFA per day applies).</li>
+    </ul>
+  </div>
+
+  <div class="policy-section">
+    <h3>Visitors</h3>
+    <p>Only one person is allowed per appointment.</p>
+    <p style="margin-top: 10px;">No children allowed unless supervised.</p>
+  </div>
+
+  <div class="policy-section">
+    <h3>Enquiries</h3>
+    <p>No voice notes. Written messages only.</p>
+  </div>
+
+  <div class="policy-section">
+    <h3>Contact Lenses</h3>
+    <p>Clients must wear lenses themselves.</p>
+    <p style="margin-top: 10px;">If I assist, any outcome is at the client’s risk.</p>
+  </div>
+</div>
       </div>
     </div>
   </section>
@@ -444,30 +479,21 @@
           <h3>LMRSTUDIO</h3>
           <p>Where Beauty Meets Artistry</p>
         </div>
-        <div class="footer-links">
-          <div class="footer-column">
-            <h4>Quick Links</h4>
-            <ul>
-              <li><a href="/index.html">Home</a></li>
-              <li><a href="/about.html">About</a></li>
-              <li><a href="/services.html">Services</a></li>
-              <li><a href="/pricing.html">Pricing</a></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>More</h4>
-            <ul>
-              <li><a href="gallery.html">Gallery</a></li>
-              <li><a href="booking.html">Booking</a></li>
-              <li><a href="contact.html">Contact</a></li>
-              <li><a href="policy.html">Policy</a></li>
-            </ul>
-          </div>
-          <div class="footer-column">
+        <ul class="nav-menu" id="footerNav">
+  <li><a href="/" class="nav-link">Home</a></li>
+  <li><a href="/about/index.html" class="nav-link">About</a></li>
+  <li><a href="/services/index.html" class="nav-link">Services</a></li>
+  <li><a href="/pricing/index.html" class="nav-link">Pricing</a></li>
+  <li><a href="/gallery/index.html" class="nav-link">Gallery</a></li>
+  <li><a href="/booking/index.html" class="nav-link">Booking</a></li>
+  <li><a href="/contact/index.html" class="nav-link">Contact</a></li>
+  <li><a href="/policy" class="nav-link">Policy</a></li>
+</ul>
+<div class="footer-column">
             <h4>Contact</h4>
             <ul>
               <li>Cotonou, Benin Republic</li>
-              <li>+229 01 56 15 98 05</li>
+              <li>+229 01 90 14 62 36</li>
               <li>Lamourp23@gmail.com</li>
             </ul>
           </div>
@@ -478,7 +504,6 @@
       </div>
     </div>
   </footer>
-
-  <script type="module" src="./main.js"></script>
+<script src="../main.js" type="module"></script>
 </body>
 </html>
