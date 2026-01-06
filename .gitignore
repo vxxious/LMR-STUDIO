@@ -1,9 +1,4 @@
-n0de_modules
-dist
-.env
-.vercelnode_modules
-dist.vercel
-
 node_modules/
-dist/.vercel/
-
+dist/
+.vercel/
+.env
