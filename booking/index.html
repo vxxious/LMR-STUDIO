@@ -2,37 +2,67 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Book Your Appointment - LMRSTUDIO">
-  <title>Booking - LMRSTUDIO</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="Request your LMR Studio makeup appointment in Cotonou and confirm availability on WhatsApp.">
+  <meta name="theme-color" content="#f4efe9">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="LMR Studio">
+  <meta property="og:title" content="Book a Look | LMR Studio">
+  <meta property="og:description" content="Reserve your LMR Studio makeup appointment in Cotonou.">
+  <meta property="og:url" content="https://lmrstudio.vercel.app/booking/">
+  <meta property="og:image" content="https://lmrstudio.vercel.app/images/lmr-social-share.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="LMR Studio: Beauty, refined. Confidence, revealed.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Book a Look | LMR Studio">
+  <meta name="twitter:description" content="Reserve your LMR Studio makeup appointment in Cotonou.">
+  <meta name="twitter:image" content="https://lmrstudio.vercel.app/images/lmr-social-share.png">
+  <title>Book a Makeup Appointment | LMR Studio</title>
+  <link rel="canonical" href="https://lmrstudio.vercel.app/booking/">
+  <script>
+    (() => {
+      document.documentElement.classList.add('js')
+      let savedTheme = null
+      try { savedTheme = localStorage.getItem('lmr-theme') } catch {}
+      const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+      const theme = savedTheme || systemTheme
+      document.documentElement.dataset.theme = theme
+      document.querySelector('meta[name="theme-color"]')?.setAttribute('content', theme === 'dark' ? '#0d0b0c' : '#f4efe9')
+    })()
+  </script>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Manrope:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
 </head>
 <body>
-  <nav class="navbar" id="navbar">
+<a class="skip-link" href="#page-content">Skip to content</a>
+<header class="navbar" id="navbar">
     <div class="nav-container">
-      <div class="logo">LMRSTUDIO</div>
-      <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-      <ul class="nav-menu" id="navMenu">
-        <li><a href="/" class="nav-link">Home</a></li>
-        <li><a href="/about/" class="nav-link">About</a></li>
-        <li><a href="/services/" class="nav-link">Services</a></li>
-        <li><a href="/pricing/" class="nav-link">Pricing</a></li>
-        <li><a href="/gallery/" class="nav-link">Gallery</a></li>
-        <li><a href="/booking/" class="nav-link">Booking</a></li>
-        <li><a href="/contact/" class="nav-link">Contact</a></li>
-        <li><a href="/policy/" class="nav-link">Policy</a></li>
-      </ul>
+      <a class="logo" href="/" aria-label="LMR Studio home"><span class="logo-mark">LMR</span><span class="logo-word">Studio</span></a>
+      <nav class="nav-shell" aria-label="Primary navigation">
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="/about/" class="nav-link">Studio</a></li>
+          <li><a href="/services/" class="nav-link">Services</a></li>
+          <li><a href="/gallery/" class="nav-link">Work</a></li>
+          <li><a href="/pricing/" class="nav-link">Pricing</a></li>
+          <li><a href="/contact/" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">
+          <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41"></path></svg>
+          <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.2A8.6 8.6 0 0 1 9.8 3.5 8.6 8.6 0 1 0 20.5 14.2Z"></path></svg>
+        </button>
+        <a href="/booking/" class="nav-cta">Book a look</a>
+        <button class="mobile-toggle" id="mobileToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu"><span></span><span></span></button>
+      </div>
     </div>
-  </nav>
+  </header>
 
-  <main>
+  <main id="page-content">
     <section class="booking">
       <div class="container">
         <div class="section-header">
@@ -42,7 +72,7 @@
         </div>
 
         <div class="booking-container">
-         <form id="bookingForm" action="#" method="post">
+         <form id="bookingForm" action="https://wa.link/mc6u0c" method="get">
             <div class="form-group">
               <label for="clientName">Full Name *</label>
               <input type="text" id="clientName" name="clientName" required placeholder="Enter your full name">
@@ -116,14 +146,14 @@
             <p class="form-note">Click to send your booking details to WhatsApp for confirmation</p>
           </form>
 
-          <div style="margin-top: 40px; padding: 30px; background: #f9f7f4; border-radius: 8px;">
+          <div class="legacy-callout">
             <h3>Booking Information</h3>
-            <ul style="margin: 20px 0; padding-left: 20px; line-height: 1.8;">
-              <li style="margin: 10px 0;">Book at least 48 hours in advance for best availability</li>
-              <li style="margin: 10px 0;">A 50% deposit is required to secure your booking</li>
-              <li style="margin: 10px 0;">Payments accepted: Mobile money, bank transfer, cash</li>
-              <li style="margin: 10px 0;">Please arrive 10 minutes before your appointment time</li>
-              <li style="margin: 10px 0;">Cancellations must be made 24 hours in advance</li>
+            <ul class="legacy-list">
+              <li>Book at least 48 hours in advance for best availability</li>
+              <li>A 70% deposit is required to secure your booking</li>
+              <li>Payments accepted: mobile money, bank transfer, and cash</li>
+              <li>Please arrive 10 minutes before your appointment time</li>
+              <li>Cancellations must be made 24 hours in advance</li>
             </ul>
           </div>
         </div>
@@ -162,7 +192,7 @@
 <footer class="footer">
   <div class="container">
     <div class="footer-bottom">
-      <p>&copy; 2024 LMRSTUDIO. All rights reserved.</p>
+      <p>&copy; <span id="currentYear">2026</span> LMR Studio. All rights reserved.</p>
     </div>
   </div>
 </footer>

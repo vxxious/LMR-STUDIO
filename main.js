@@ -1,164 +1,311 @@
-document.addEventListener('DOMContentLoaded', () => {
+const root = document.documentElement
+const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
+const systemThemeQuery = window.matchMedia('(prefers-color-scheme: dark)')
+
+function getSavedTheme() {
+  try {
+    return localStorage.getItem('lmr-theme')
+  } catch {
+    return null
+  }
+}
+
+function setTheme(theme, persist = false) {
+  root.dataset.theme = theme
+
+  const themeToggle = document.getElementById('themeToggle')
+  if (themeToggle) {
+    const isDark = theme === 'dark'
+    themeToggle.setAttribute('aria-pressed', String(isDark))
+    themeToggle.setAttribute('aria-label', `Switch to ${isDark ? 'light' : 'dark'} mode`)
+  }
+
+  const themeColor = document.querySelector('meta[name="theme-color"]')
+  if (themeColor) themeColor.setAttribute('content', theme === 'dark' ? '#0d0b0c' : '#f4efe9')
+  if (persist) {
+    try {
+      localStorage.setItem('lmr-theme', theme)
+    } catch {
+      // The selected theme still applies for this session if storage is unavailable.
+    }
+  }
+}
+
+function initializeTheme() {
+  const themeToggle = document.getElementById('themeToggle')
+  setTheme(root.dataset.theme || (systemThemeQuery.matches ? 'dark' : 'light'))
+
+  themeToggle?.addEventListener('click', () => {
+    setTheme(root.dataset.theme === 'dark' ? 'light' : 'dark', true)
+  })
+
+  systemThemeQuery.addEventListener('change', event => {
+    if (!getSavedTheme()) setTheme(event.matches ? 'dark' : 'light')
+  })
+}
+
+function initializeNavigation() {
+  const navbar = document.getElementById('navbar')
   const mobileToggle = document.getElementById('mobileToggle')
   const navMenu = document.getElementById('navMenu')
-  const navLinks = document.querySelectorAll('.nav-link')
-  const navbar = document.getElementById('navbar')
+  const navShell = navMenu?.closest('.nav-shell') || navMenu
+  const navLinks = [...document.querySelectorAll('.nav-link')]
 
-  if (mobileToggle && navMenu) {
-    mobileToggle.addEventListener('click', () => {
-      mobileToggle.classList.toggle('active')
-      navMenu.classList.toggle('active')
-    })
+  const normalizePath = path => path === '/' ? '/' : `${path.replace(/\/+$/, '')}/`
+  const currentPath = normalizePath(window.location.pathname)
+  navLinks.forEach(link => {
+    if (!link.getAttribute('href')?.startsWith('/')) return
+    const isCurrentPage = normalizePath(new URL(link.href, window.location.origin).pathname) === currentPath
+    link.classList.toggle('active', isCurrentPage)
+    if (isCurrentPage) link.setAttribute('aria-current', 'page')
+  })
+
+  function setMenu(open) {
+    mobileToggle?.classList.toggle('active', open)
+    navShell?.classList.toggle('active', open)
+    mobileToggle?.setAttribute('aria-expanded', String(open))
+    mobileToggle?.setAttribute('aria-label', open ? 'Close menu' : 'Open menu')
+    document.body.classList.toggle('menu-open', open)
   }
 
-  if (navLinks && navLinks.length) {
-    navLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        if (mobileToggle) mobileToggle.classList.remove('active')
-        if (navMenu) navMenu.classList.remove('active')
+  mobileToggle?.addEventListener('click', () => {
+    setMenu(mobileToggle.getAttribute('aria-expanded') !== 'true')
+  })
+
+  navLinks.forEach(link => link.addEventListener('click', () => setMenu(false)))
+
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape') setMenu(false)
+  })
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 1088) setMenu(false)
+  })
+
+  const anchorNavLinks = navLinks.filter(link => link.getAttribute('href')?.startsWith('#'))
+  const pageSections = [...document.querySelectorAll('main section[id]')]
+  if (anchorNavLinks.length && pageSections.length && 'IntersectionObserver' in window) {
+    const sectionObserver = new IntersectionObserver(entries => {
+      const visibleSection = entries
+        .filter(entry => entry.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0]
+
+      if (!visibleSection) return
+      anchorNavLinks.forEach(link => {
+        const isActive = link.getAttribute('href') === `#${visibleSection.target.id}`
+        link.classList.toggle('active', isActive)
+        if (isActive) link.setAttribute('aria-current', 'location')
+        else link.removeAttribute('aria-current')
       })
-    })
+    }, { rootMargin: '-30% 0px -60%', threshold: [0, 0.2, 0.5] })
+
+    pageSections.forEach(section => sectionObserver.observe(section))
   }
 
-  if (navbar) {
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 100) navbar.classList.add('scrolled')
-      else navbar.classList.remove('scrolled')
-    })
-  }
+  let frameRequested = false
+  const progressBar = document.getElementById('scrollProgress')
+  const heroVisual = document.querySelector('[data-parallax]')
 
-  const carouselTrack = document.getElementById('carouselTrack')
-  const prevBtn = document.getElementById('prevBtn')
-  const nextBtn = document.getElementById('nextBtn')
-  const carouselDots = document.getElementById('carouselDots')
-  const slides = document.querySelectorAll('.carousel-slide')
+  function updateScrollEffects() {
+    const scrollTop = window.scrollY
+    const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight
+    const progress = scrollableHeight > 0 ? Math.min(scrollTop / scrollableHeight, 1) : 0
 
-  if (carouselTrack && prevBtn && nextBtn && carouselDots && slides.length) {
-    let currentSlide = 0
-    const totalSlides = slides.length
+    navbar?.classList.toggle('scrolled', scrollTop > 16)
+    if (progressBar) progressBar.style.transform = `scaleX(${progress})`
 
-    slides.forEach((_, index) => {
-      const dot = document.createElement('button')
-      dot.classList.add('carousel-dot')
-      if (index === 0) dot.classList.add('active')
-      dot.setAttribute('aria-label', `Go to slide ${index + 1}`)
-      dot.addEventListener('click', () => goToSlide(index))
-      carouselDots.appendChild(dot)
-    })
-
-    const dots = document.querySelectorAll('.carousel-dot')
-
-    function updateCarousel() {
-      slides.forEach((slide, index) => {
-        slide.classList.toggle('active', index === currentSlide)
-      })
-      dots.forEach((dot, index) => {
-        dot.classList.toggle('active', index === currentSlide)
-      })
+    if (heroVisual && !reducedMotionQuery.matches && scrollTop < window.innerHeight) {
+      const parallaxOffset = Math.min(scrollTop * 0.035, 18)
+      heroVisual.style.transform = `translate3d(0, ${parallaxOffset}px, 0)`
     }
 
-    function goToSlide(index) {
-      currentSlide = index
-      updateCarousel()
-    }
-
-    function nextSlide() {
-      currentSlide = (currentSlide + 1) % totalSlides
-      updateCarousel()
-    }
-
-    function prevSlide() {
-      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides
-      updateCarousel()
-    }
-
-    nextBtn.addEventListener('click', nextSlide)
-    prevBtn.addEventListener('click', prevSlide)
-
-    let autoplayInterval = setInterval(nextSlide, 5000)
-
-    carouselTrack.addEventListener('mouseenter', () => clearInterval(autoplayInterval))
-    carouselTrack.addEventListener('mouseleave', () => {
-      autoplayInterval = setInterval(nextSlide, 5000)
-    })
+    frameRequested = false
   }
 
-  const bookingForm = document.getElementById('bookingForm')
-
-  if (bookingForm) {
-    bookingForm.addEventListener('submit', (e) => {
-      e.preventDefault()
-
-      const clientName = document.getElementById('clientName')?.value.trim() || ''
-      const contact = document.getElementById('contact')?.value.trim() || ''
-      const bookingDate = document.getElementById('bookingDate')?.value || ''
-      const bookingTime = document.getElementById('bookingTime')?.value || ''
-      const skinType = document.getElementById('skinType')?.value || ''
-      const makeupStyle = document.getElementById('makeupStyle')?.value || ''
-      const serviceType = document.getElementById('serviceType')?.value || ''
-      const additionalNotes = document.getElementById('additionalNotes')?.value.trim() || ''
-
-      if (!clientName || !contact || !bookingDate || !bookingTime || !skinType || !makeupStyle || !serviceType) {
-        alert('Please fill in all required fields')
-        return
-      }
-
-      let whatsappMessage =
-        `Hello LMRSTUDIO, I would like to book an appointment.\n\n` +
-        `Name: ${clientName}\n` +
-        `Contact: ${contact}\n` +
-        `Date: ${bookingDate}\n` +
-        `Time: ${bookingTime}\n` +
-        `Skin Type: ${skinType}\n` +
-        `Makeup Style: ${makeupStyle}\n` +
-        `Service Type: ${serviceType}\n`
-
-      if (additionalNotes) whatsappMessage += `Notes: ${additionalNotes}\n`
-
-      whatsappMessage += `\nPlease confirm my booking. Thank you.`
-
-      const encodedMessage = encodeURIComponent(whatsappMessage)
-      const whatsappUrl = `https://wa.me/22956159805?text=${encodedMessage}`
-
-      bookingForm.reset()
-      window.location.href = whatsappUrl
-    })
+  function requestScrollUpdate() {
+    if (frameRequested) return
+    frameRequested = true
+    window.requestAnimationFrame(updateScrollEffects)
   }
 
-  const dateInput = document.getElementById('bookingDate')
-  if (dateInput) {
-    const today = new Date().toISOString().split('T')[0]
-    dateInput.setAttribute('min', today)
+  updateScrollEffects()
+  window.addEventListener('scroll', requestScrollUpdate, { passive: true })
+  reducedMotionQuery.addEventListener('change', event => {
+    if (event.matches && heroVisual) heroVisual.style.transform = 'none'
+    requestScrollUpdate()
+  })
+}
+
+function initializeReveals() {
+  const revealElements = [...document.querySelectorAll('[data-reveal]')]
+  if (!revealElements.length) return
+
+  if (reducedMotionQuery.matches || !('IntersectionObserver' in window)) {
+    revealElements.forEach(element => element.classList.add('is-visible'))
+    return
   }
 
-  const anchors = document.querySelectorAll('a[href^="#"]')
-  if (anchors && anchors.length) {
-    anchors.forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault()
-        const target = document.querySelector(this.getAttribute('href'))
-        if (!target) return
-        const navbarHeight = navbar ? navbar.offsetHeight : 0
-        const targetPosition = target.offsetTop - navbarHeight
-        window.scrollTo({ top: targetPosition, behavior: 'smooth' })
-      })
-    })
-  }
-
-  const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -100px 0px' }
-  const observer = new IntersectionObserver((entries) => {
+  const revealObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (!entry.isIntersecting) return
-      entry.target.style.opacity = '1'
-      entry.target.style.transform = 'translateY(0)'
+      entry.target.classList.add('is-visible')
+      revealObserver.unobserve(entry.target)
     })
-  }, observerOptions)
+  }, { rootMargin: '0px 0px -12% 0px', threshold: 0.12 })
 
-  const animatedElements = document.querySelectorAll('.service-card, .pricing-card, .contact-item, .policy-section')
-  animatedElements.forEach(el => {
-    el.style.opacity = '0'
-    el.style.transform = 'translateY(20px)'
-    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease'
-    observer.observe(el)
+  revealElements.forEach(element => revealObserver.observe(element))
+}
+
+function initializeGallery() {
+  const galleryRail = document.getElementById('galleryRail')
+  const previousButton = document.getElementById('prevBtn')
+  const nextButton = document.getElementById('nextBtn')
+  if (!galleryRail || !previousButton || !nextButton) return
+
+  function getScrollDistance() {
+    return Math.max(galleryRail.clientWidth * 0.72, 320)
+  }
+
+  function scrollGallery(direction) {
+    galleryRail.scrollBy({
+      left: getScrollDistance() * direction,
+      behavior: reducedMotionQuery.matches ? 'auto' : 'smooth',
+    })
+  }
+
+  previousButton.addEventListener('click', () => scrollGallery(-1))
+  nextButton.addEventListener('click', () => scrollGallery(1))
+
+  let frameRequested = false
+  function updateControls() {
+    const maxScroll = galleryRail.scrollWidth - galleryRail.clientWidth
+    previousButton.disabled = galleryRail.scrollLeft <= 2
+    nextButton.disabled = galleryRail.scrollLeft >= maxScroll - 2
+    frameRequested = false
+  }
+
+  galleryRail.addEventListener('scroll', () => {
+    if (frameRequested) return
+    frameRequested = true
+    window.requestAnimationFrame(updateControls)
+  }, { passive: true })
+
+  window.addEventListener('resize', updateControls)
+  updateControls()
+}
+
+function initializeLegacyGallery() {
+  const carouselTrack = document.getElementById('carouselTrack')
+  const previousButton = document.getElementById('prevBtn')
+  const nextButton = document.getElementById('nextBtn')
+  const dotsContainer = document.getElementById('carouselDots')
+  const slides = carouselTrack ? [...carouselTrack.querySelectorAll('.carousel-slide')] : []
+  if (!carouselTrack || !previousButton || !nextButton || !slides.length) return
+
+  let currentIndex = Math.max(slides.findIndex(slide => slide.classList.contains('active')), 0)
+  const dots = slides.map((_, index) => {
+    if (!dotsContainer) return null
+    const dot = document.createElement('button')
+    dot.type = 'button'
+    dot.className = 'carousel-dot'
+    dot.setAttribute('aria-label', `View portfolio image ${index + 1}`)
+    dot.addEventListener('click', () => showSlide(index))
+    dotsContainer.appendChild(dot)
+    return dot
   })
+
+  function showSlide(index) {
+    currentIndex = (index + slides.length) % slides.length
+    slides.forEach((slide, slideIndex) => {
+      const isActive = slideIndex === currentIndex
+      slide.classList.toggle('active', isActive)
+      slide.setAttribute('aria-hidden', String(!isActive))
+      if (!isActive) slide.querySelector('video')?.pause()
+    })
+    dots.forEach((dot, dotIndex) => {
+      dot?.classList.toggle('active', dotIndex === currentIndex)
+      dot?.setAttribute('aria-current', dotIndex === currentIndex ? 'true' : 'false')
+    })
+  }
+
+  previousButton.addEventListener('click', () => showSlide(currentIndex - 1))
+  nextButton.addEventListener('click', () => showSlide(currentIndex + 1))
+  carouselTrack.addEventListener('keydown', event => {
+    if (event.key === 'ArrowLeft') showSlide(currentIndex - 1)
+    if (event.key === 'ArrowRight') showSlide(currentIndex + 1)
+  })
+
+  carouselTrack.tabIndex = 0
+  showSlide(currentIndex)
+}
+
+function getFormValue(id) {
+  const field = document.getElementById(id)
+  return field instanceof HTMLInputElement || field instanceof HTMLSelectElement || field instanceof HTMLTextAreaElement
+    ? field.value.trim()
+    : ''
+}
+
+function initializeBookingForm() {
+  const bookingForm = document.getElementById('bookingForm')
+  const dateInput = document.getElementById('bookingDate')
+
+  if (dateInput instanceof HTMLInputElement) {
+    const today = new Date()
+    const year = today.getFullYear()
+    const month = String(today.getMonth() + 1).padStart(2, '0')
+    const day = String(today.getDate()).padStart(2, '0')
+    dateInput.min = `${year}-${month}-${day}`
+  }
+
+  if (!(bookingForm instanceof HTMLFormElement)) return
+
+  bookingForm.addEventListener('submit', event => {
+    event.preventDefault()
+    if (!bookingForm.reportValidity()) return
+
+    const details = {
+      name: getFormValue('clientName'),
+      contact: getFormValue('contact'),
+      date: getFormValue('bookingDate'),
+      time: getFormValue('bookingTime'),
+      skinTone: getFormValue('skinType'),
+      style: getFormValue('makeupStyle'),
+      service: getFormValue('serviceType'),
+      notes: getFormValue('additionalNotes'),
+    }
+
+    const messageLines = [
+      'Hello LMR Studio, I would like to request an appointment.',
+      '',
+      `Name: ${details.name}`,
+      `Contact: ${details.contact}`,
+      `Date: ${details.date}`,
+      `Time: ${details.time}`,
+      `Skin tone: ${details.skinTone}`,
+      `Makeup style: ${details.style}`,
+      `Service: ${details.service}`,
+    ]
+
+    if (details.notes) messageLines.push(`Notes: ${details.notes}`)
+    messageLines.push('', 'Please confirm availability and deposit details. Thank you.')
+
+    const whatsappUrl = `https://wa.me/22956159805?text=${encodeURIComponent(messageLines.join('\n'))}`
+    window.location.assign(whatsappUrl)
+  })
+}
+
+function initializeFooter() {
+  const year = document.getElementById('currentYear')
+  if (year) year.textContent = String(new Date().getFullYear())
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  initializeTheme()
+  initializeNavigation()
+  initializeReveals()
+  initializeGallery()
+  initializeLegacyGallery()
+  initializeBookingForm()
+  initializeFooter()
 })

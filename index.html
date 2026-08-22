@@ -1,530 +1,167 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="LMRSTUDIO - Professional Makeup and Glam Services in Cotonou, Benin Republic. Expert makeup artist offering Soft Glam, Bratz, Barbie, and more styles.">
-  <title>LMRSTUDIO - Professional Makeup & Glam Services</title>
-  <link rel="stylesheet" href="/style.css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="LMR Studio creates refined, camera-ready makeup looks in Cotonou, Benin Republic. Explore our artistry and reserve your appointment.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="LMR Studio">
+  <meta property="og:title" content="LMR Studio | Makeup Artistry in Cotonou">
+  <meta property="og:description" content="Refined, camera-ready makeup looks tailored to you in Cotonou, Benin Republic.">
+  <meta property="og:url" content="https://lmrstudio.vercel.app/">
+  <meta property="og:image" content="https://lmrstudio.vercel.app/images/lmr-social-share.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="LMR Studio: Beauty, refined. Confidence, revealed.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="LMR Studio | Makeup Artistry in Cotonou">
+  <meta name="twitter:description" content="Refined, camera-ready makeup looks tailored to you in Cotonou, Benin Republic.">
+  <meta name="twitter:image" content="https://lmrstudio.vercel.app/images/lmr-social-share.png">
+  <meta name="theme-color" content="#f4efe9">
+  <title>LMR Studio | Makeup Artistry in Cotonou</title>
+  <link rel="canonical" href="https://lmrstudio.vercel.app/">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <script>
+    (() => {
+      document.documentElement.classList.add('js')
+      let savedTheme = null
+      try { savedTheme = localStorage.getItem('lmr-theme') } catch {}
+      const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+      const theme = savedTheme || systemTheme
+      document.documentElement.dataset.theme = theme
+      document.querySelector('meta[name="theme-color"]')?.setAttribute('content', theme === 'dark' ? '#0d0b0c' : '#f4efe9')
+    })()
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Manrope:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-  <nav class="navbar" id="navbar">
-    <div class="nav-container gen">
-      <div class="logo">LMRSTUDIO</div>
-      <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-      <ul class="nav-menu" id="navMenu">
-        <li><a href="/" class="nav-link">Home</a></li>
-        <li><a href="/about/" class="nav-link">About</a></li>
-        <li><a href="/services/" class="nav-link">Services</a></li>
-        <li><a href="/pricing/" class="nav-link">Pricing</a></li>
-        <li><a href="/gallery/" class="nav-link">Gallery</a></li>
-        <li><a href="/booking/" class="nav-link">Booking</a></li>
-        <li><a href="/contact/" class="nav-link">Contact</a></li>
-        <li><a href="/policy/" class="nav-link">Policy</a></li>
-      </ul>
-  </nav>
-  <section id="home" class="hero">
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <h1 class="hero-title">LMRSTUDIO</h1>
-      <p class="hero-subtitle">Where Beauty Meets Artistry</p>
-      <p class="hero-description">Professional Makeup & Glam Services for Every Occasion</p>
-      <div class="hero-buttons">
-        <a href="/booking/" class="btn btn-primary">Book Appointment</a>
-        <a href="/gallery/" class="btn btn-secondary">View Portfolio</a> 
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <div class="scroll-progress" aria-hidden="true"><span id="scrollProgress"></span></div>
+
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a class="logo" href="/" aria-label="LMR Studio home">
+        <span class="logo-mark">LMR</span>
+        <span class="logo-word">Studio</span>
+      </a>
+
+      <nav class="nav-shell" aria-label="Primary navigation">
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="/about/" class="nav-link">Studio</a></li>
+          <li><a href="/services/" class="nav-link">Services</a></li>
+          <li><a href="/gallery/" class="nav-link">Work</a></li>
+          <li><a href="/pricing/" class="nav-link">Pricing</a></li>
+          <li><a href="/contact/" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">
+          <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41"></path></svg>
+          <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.2A8.6 8.6 0 0 1 9.8 3.5 8.6 8.6 0 1 0 20.5 14.2Z"></path></svg>
+        </button>
+        <a href="/booking/" class="nav-cta">Book a look</a>
+        <button class="mobile-toggle" id="mobileToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu"><span></span><span></span></button>
       </div>
     </div>
-    <div class="scroll-indicator">
-      <span></span>
-    </div>
-  </section>
+  </header>
 
-  <section id="about" class="about">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">About LMRSTUDIO</h2>
-        <div class="section-divider"></div>
-      </div>
-      <div class="about-content">
-        <div class="about-text">
-          <p>Welcome to LMRSTUDIO, your premier destination for professional makeup and glam services in Cotonou, Benin Republic. We specialize in creating stunning looks that enhance your natural beauty and boost your confidence.</p>
-          <p>Our expert team is dedicated to providing personalized beauty experiences, whether you're preparing for a special event, photoshoot, or simply want to treat yourself to a professional makeover.</p>
-          <p>With a passion for artistry and attention to detail, we bring your beauty vision to life using high-quality products and the latest techniques in makeup application.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="services" class="services">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">Our Services</h2>
-        <div class="section-divider"></div>
-        <p class="section-description">Choose from our range of professional makeup styles</p>
-      </div>
-      <div class="services-grid">
-        <div class="service-card">
-          <div class="service-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-            </svg>
+  <main id="main-content">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-ambient hero-ambient-one" aria-hidden="true"></div>
+      <div class="hero-ambient hero-ambient-two" aria-hidden="true"></div>
+      <div class="hero-grid container">
+        <div class="hero-copy">
+          <p class="eyebrow hero-enter" style="--enter-index: 0">Makeup artistry · Cotonou</p>
+          <h1 class="hero-title hero-enter" id="hero-title" style="--enter-index: 1">Beauty, refined.<br><em>Confidence, revealed.</em></h1>
+          <p class="hero-description hero-enter" style="--enter-index: 2">Considered makeup for every version of you, from soft, luminous skin to full editorial glam.</p>
+          <div class="hero-buttons hero-enter" style="--enter-index: 3">
+            <a href="/booking/" class="btn btn-primary">Reserve your appointment</a>
+            <a href="/gallery/" class="text-link">Explore our work <span aria-hidden="true">↗</span></a>
           </div>
-          <h3>Soft Glam</h3>
-          <p>Natural, elegant look perfect for everyday wear and professional settings</p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="12" cy="12" r="10"/>
-              <circle cx="12" cy="12" r="4"/>
-            </svg>
-          </div>
-          <h3>Bratz</h3>
-          <p>Bold, doll-like features with dramatic eyes and glossy lips</p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
-            </svg>
-          </div>
-          <h3>Barbie</h3>
-          <p>Glamorous, pink-toned makeup with a flawless finish</p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="12" cy="12" r="10"/>
-              <path d="M12 6v6l4 2"/>
-            </svg>
-          </div>
-          <h3>Dark</h3>
-          <p>Sultry smokey eyes with dramatic black eyeshadow for evening events</p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
-            </svg>
-          </div>
-          <h3>Baddie Beat</h3>
-          <p>Bold, confident look with sharp contours and striking features</p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
-            </svg>
-          </div>
-          <h3>Paint Me Down</h3>
-          <p>Full glam with artistic flair and intricate detailing</p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="12" cy="8" r="7"/>
-              <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/>
-            </svg>
-          </div>
-          <h3>Extra Blush</h3>
-          <p>Rosy, sun-kissed glow with emphasis on fresh, youthful radiance</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="pricing" class="pricing">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">Pricing</h2>
-        <div class="section-divider"></div>
-        <p class="section-description">Affordable luxury for every budget</p>
-      </div>
-      <div class="pricing-grid">
-        <div class="pricing-card">
-          <div class="pricing-badge">Popular</div>
-          <h3>Student</h3>
-          <div class="price">7,000 <span>CFA</span></div>
-          <ul class="pricing-features">
-            <li>All makeup styles available</li>
-            <li>Student-friendly pricing</li>
-            <li>Studio location</li>
-            <li>Professional products</li>
-            <li>Valid student ID required</li>
-          </ul>
-          <a href="/booking/" class="btn btn-primary">Book Now</a>
-        </div>
-        <div class="pricing-card featured">
-          <div class="pricing-badge">Best Value</div>
-          <h3>Standard</h3>
-          <div class="price">9,000 <span>CFA</span></div>
-          <ul class="pricing-features">
-            <li>All makeup styles available</li>
-            <li>Premium products</li>
-            <li>Studio location</li>
-            <li>Professional consultation</li>
-            <li>Touch-up tips included</li>
-          </ul>
-          <a href="/booking/" class="btn btn-primary">Book Now</a>
-        </div>
-        <div class="pricing-card">
-          <div class="pricing-badge">Premium</div>
-          <h3>Home Service</h3>
-          <div class="price">15,000 <span>CFA</span></div>
-          <ul class="pricing-features">
-            <li>All makeup styles available</li>
-            <li>Service at your location</li>
-            <li>Premium products</li>
-            <li>Flexible scheduling</li>
-            <li>Travel included</li>
-          </ul>
-          <a href="/booking/" class="btn btn-primary">Book Now</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="gallery" class="gallery">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">Portfolio Gallery</h2>
-        <div class="section-divider"></div>
-        <p class="section-description">View our stunning transformations</p>
-      </div>
-      <div class="gallery-carousel">
-        <div class="carousel-container">
-          <button class="carousel-btn prev" id="prevBtn" aria-label="Previous image">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <polyline points="15 18 9 12 15 6"/>
-            </svg>
-          </button>
-          <div class="carousel-track" id="carouselTrack">
-            <div class="carousel-slide active">
-              <img src="/images/gallery/photo_1_2025-12-03_21-19-13.jpg" alt="Professional makeup transformation">
-            </div>
-            <div class="carousel-slide">
-              <img src="/images/gallery/photo_1_2025-12-03_21-03-05.jpg" alt="Soft glam makeup look">
-            </div>
-            <div class="carousel-slide">
-              <img src="/images/gallery/photo_2026-01-08_22-44-18.jpg" alt="Studio makeup session">
-            </div>
-            <div class="carousel-slide">
-              <img src="/images/gallery/photo_5_2025-12-03_21-03-05.jpg" alt="Baddie beat makeup">
-            </div>
-            <div class="carousel-slide">
-                <img src="/images/gallery/photo_2026-01-08_22-44-20.jpg" alt="Smokey eye makeup">
-              </div>
-               <div class="carousel-slide">
-                <img src="/images/gallery/photo_2026-01-08_22-44-21.jpg" alt="Natural makeup look">
-              </div>
-            <div class="carousel-slide">
-              <img src="/images/gallery/photo_2026-01-08_22-44-22.jpg" alt="Bridal makeup look">
-            </div>
-             <div class="carousel-slide">
-                <img src="/images/gallery/photo_2026-01-08_22-44-24.jpg" alt="Studio makeup session">
-                </div>
-                <div class="carousel-slide">
-                <img src="/images/gallery/photo_2026-01-08_22-44-25.jpg" alt="Bridal makeup look">
-                </div>
-                  <div class="carousel-slide">
-                <img src="/images/gallery/photo_2026-01-08_22-44-26.jpg" alt="Bridal makeup look">
-                </div>
-                 <div class="carousel-slide">
-                <img src="/images/gallery/photo_2026-01-09_00-35-03.jpg" alt="Smokey eye makeup">
-                </div>
-          </div>
-          <button class="carousel-btn next" id="nextBtn" aria-label="Next image">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <polyline points="9 18 15 12 9 6"/>
-            </svg>
-          </button>
-        </div>
-        <div class="carousel-dots" id="carouselDots"></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="booking" class="booking">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">Book Your Appointment</h2>
-        <div class="section-divider"></div>
-        <p class="section-description">Let's create your perfect look</p>
-      </div>
-      <div class="booking-container">
-        <form id="bookingForm" class="booking-form">
-          <div class="form-group">
-            <label for="clientName">Full Name</label>
-            <input type="text" id="clientName" name="clientName" required placeholder="Enter your full name">
-          </div>
-          <div class="form-group">
-            <label for="contact">Contact (Phone or Email)</label>
-            <input type="text" id="contact" name="contact" required placeholder="Phone number or email">
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label for="bookingDate">Preferred Date</label>
-              <input type="date" id="bookingDate" name="bookingDate" required>
-            </div>
-            <div class="form-group">
-              <label for="bookingTime">Preferred Time</label>
-              <input type="time" id="bookingTime" name="bookingTime" required>
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="skinType">Skin Type</label>
-            <select id="skinType" name="skinType" required>
-              <option value="">Select your skin type</option>
-              <option value="Dark">Dark</option>
-              <option value="Light">Light</option>
-              <option value="Caramel">Caramel</option>
-              <option value="Fair">Fair</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="makeupStyle">Makeup Style</label>
-            <select id="makeupStyle" name="makeupStyle" required>
-              <option value="">Select your preferred style</option>
-              <option value="Soft Glam">Soft Glam</option>
-              <option value="Bratz">Bratz</option>
-              <option value="Barbie">Barbie</option>
-              <option value="Dark">Dark (Black Eyeshadow)</option>
-              <option value="Baddie Beat">Baddie Beat</option>
-              <option value="Paint Me Down">Paint Me Down</option>
-              <option value="Asoebi Glam">Asoebi Glam</option>
-                <option value="Birthday Glam">Birthday Glam</option>
-                <option value="Bridal">Bridal</option>
-                <option value="Photoshoot">Photoshoot</option>
-                <option value="Natural Look">Natural Look</option>
-                <option value="Convocation Glam">Convocation Glam</option>
-              <option value="Extra Blush">Extra Blush</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="serviceType">Service Type</label>
-            <select id="serviceType" name="serviceType" required>
-              <option value="">Select service type</option>
-              <option value="Student">Student (7,000 CFA)</option>
-              <option value="Standard">Standard (9,000 CFA)</option>
-              <option value="Home Service">Home Service (15,000 CFA)</option>
-            </select>
-          </div>
-          <button type="submit" class="btn btn-primary btn-submit">Send to WhatsApp</button>
-          <p class="form-note">Click to send your booking details to WhatsApp for confirmation</p>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact" class="contact">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">Get In Touch</h2>
-        <div class="section-divider"></div>
-        <p class="section-description">Connect with us on social media</p>
-      </div>
-      <div class="contact-content">
-        <div class="contact-info">
-          <div class="contact-item">
-            <div class="contact-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-              </svg>
-            </div>
-            <div>
-              <h3>Phone</h3>
-              <a href="tel:+2290190146236">+229 01 90 14 62 36</a>
-            </div>
-          </div>
-          <div class="contact-item">
-            <div class="contact-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                <polyline points="22,6 12,13 2,6"/>
-              </svg>
-            </div>
-            <div>
-              <h3>Email</h3>
-              <a href="mailto:Lamourp23@gmail.com">Lamourp23@gmail.com</a>
-            </div>
-          </div>
-          <div class="contact-item">
-            <div class="contact-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                <circle cx="12" cy="10" r="3"/>
-              </svg>
-            </div>
-            <div>
-              <h3>Location</h3>
-              <p>Cotonou, Benin Republic</p>
-            </div>
+          <div class="hero-proof hero-enter" style="--enter-index: 4">
+            <div><strong>7+</strong><span>Signature looks</span></div>
+            <div><strong>9am to 11pm</strong><span>By appointment</span></div>
+            <div><strong>Cotonou</strong><span>Studio & home service</span></div>
           </div>
         </div>
-        <div class="social-links">
-          <a href="https://wa.link/mc6u0c" target="_blank" rel="noopener noreferrer" class="social-link whatsapp">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-            </svg>
-            <span>WhatsApp</span>
-          </a>
-          <a href="https://www.instagram.com/makeupartist_in_ctown?igsh=MTRoZXAwamJlaTd3cA==" target="_blank" rel="noopener noreferrer" class="social-link instagram">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-            </svg>
-            <span>@LMRSTUDIO__</span>
-          </a>
-          <a href="https://www.tiktok.com/@makeupartistinctown?_r=1&_t=ZS-920gHdDhcRO" target="_blank" rel="noopener noreferrer" class="social-link tiktok">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
-            </svg>
-            <span>@LMRSTUDIO</span>
-          </a>
-          <a href="mailto:Lamourp23@gmail.com" class="social-link gmail">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/>
-            </svg>
-            <span>Gmail</span>
-          </a>
+
+        <div class="hero-visual hero-enter" style="--enter-index: 2" data-parallax>
+          <div class="hero-image-wrap image-reveal is-visible"><img src="/images/gallery/lmr-look-sunset-glam-front.jpg" alt="LMR Studio client wearing a sunset-inspired glam makeup look" width="1242" height="1656" fetchpriority="high"></div>
+          <div class="hero-note glass-card"><span class="hero-note-dot" aria-hidden="true"></span><div><strong>Your face, your finish.</strong><span>Every look is tailored.</span></div></div>
+          <div class="hero-monogram" aria-hidden="true">LMR</div>
         </div>
       </div>
-    </div>
-  </section>
+      <a class="scroll-cue" href="#studio-preview" aria-label="Discover LMR Studio"><span>Discover</span><i aria-hidden="true"></i></a>
+    </section>
 
-  <section id="ceo" class="ceo">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">Meet the CEO</h2>
-        <div class="section-divider"></div>
-      </div>
-      <div class="ceo-content">
-        <div class="ceo-image">
-          <img src="/images/gallery/photo_1_2025-12-04_13-53-14.jpg" alt="LMRSTUDIO CEO">
+    <section id="studio-preview" class="about section-pad">
+      <div class="container">
+        <div class="section-intro split-intro" data-reveal>
+          <div><p class="eyebrow">The LMR experience</p><h2 class="section-title">Made personal.<br><em>Never predictable.</em></h2></div>
+          <div class="intro-copy"><p>LMR Studio is a Cotonou beauty destination devoted to making you look unmistakably like yourself, only elevated.</p><p>Every appointment pairs modern technique, premium products, and an exacting eye for detail.</p><a href="/about/" class="btn btn-primary preview-button">Discover the studio</a></div>
         </div>
-        <div class="ceo-info">
-          <h3>The Artist Behind LMRSTUDIO</h3>
-          <p>With a passion for beauty and artistry, our CEO has transformed LMRSTUDIO into Cotonou's premier destination for professional makeup services. Specializing in a diverse range of styles from soft glam to dramatic evening looks, every client receives personalized attention and expert application.</p>
-          <p>Trained in the latest makeup techniques and committed to using only premium products, our team ensures that every appointment results in a flawless, confidence-boosting transformation.</p>
-          <p>Based in Cotonou, Benin Republic, LMRSTUDIO has built a reputation for excellence, creativity, and dedication to making every client look and feel their absolute best.</p>
+        <div class="about-editorial">
+          <figure class="about-image image-reveal" data-reveal="image"><img src="/images/gallery/photo_1_2025-12-03_21-03-05.jpg" alt="LMR Studio client after a professional glam session" width="960" height="1280" loading="lazy"><figcaption>Signature glam · LMR Studio</figcaption></figure>
+          <div class="about-quote" data-reveal><span class="quote-mark" aria-hidden="true">“</span><blockquote>Makeup should never hide you. It should reveal the confidence that was already there.</blockquote><p>Thoughtful consultation. Skin-first preparation. A finish designed around you.</p></div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="policy" class="policy">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">Booking Policy</h2>
-        <div class="section-divider"></div>
-        <p class="section-description">Please read our terms and conditions</p>
+    <section class="services section-pad section-tint">
+      <div class="container">
+        <div class="landing-heading" data-reveal>
+          <div><p class="eyebrow">Signature services</p><h2 class="section-title">Choose your<br><em>mood.</em></h2></div>
+          <a href="/services/" class="btn btn-primary">View all services</a>
+        </div>
+        <div class="services-grid services-preview stagger-group">
+          <article class="service-card" data-reveal><span class="service-number">01</span><h3>Soft Glam</h3><p>Luminous skin, soft definition, and effortless polish for an elevated natural finish.</p><span class="service-tag">Understated · Radiant</span></article>
+          <article class="service-card" data-reveal><span class="service-number">02</span><h3>Baddie Beat</h3><p>Sharp contour, bold definition, and a confident finish that owns the room.</p><span class="service-tag">Fierce · Defined</span></article>
+          <article class="service-card" data-reveal><span class="service-number">03</span><h3>Paint Me Down</h3><p>Full glam with an artistic edge, intricate detail, and a completely custom mood.</p><span class="service-tag">Creative · Full glam</span></article>
+        </div>
       </div>
-      <div class="policy-content">
-  <div class="policy-section">
-    <h3>Booking Policy</h3>
-    <p>We operate strictly by booking only. Walk-ins are not accepted, NO REFUND after payment is made.</p>
-  </div>
+    </section>
 
-  <div class="policy-section">
-    <h3>Working Hours</h3>
-    <p>Our working hours are 9:00AM to 11:00PM.</p>
-    <p style="margin-top: 10px;">Earlier or later bookings attract extra charges.</p>
-  </div>
-
-  <div class="policy-section">
-    <h3>Deposit & Payment</h3>
-    <p>A 70% deposit is required to secure your slot. This deposit is NON-REFUNDABLE.</p>
-    <p style="margin-top: 10px;">The remaining balance must be paid on or before your appointment.</p>
-  </div>
-
-  <div class="policy-section">
-    <h3>Date Changes</h3>
-    <p>Date change is allowed once only.</p>
-    <p style="margin-top: 10px;">Any further change attracts a fee.</p>
-    <p style="margin-top: 10px;">Date changes within 48 hours attract a fee.</p>
-  </div>
-
-  <div class="policy-section">
-    <h3>Punctuality & Time Charges</h3>
-    <p>Please be punctual.</p>
-    <p style="margin-top: 10px;">Arrivals later than 10 minutes attract a late fee.</p>
-    <p style="margin-top: 10px;">Extended hours attract additional charges.</p>
-  </div>
-
-  <div class="policy-section">
-    <h3>Home Service</h3>
-    <p>Clients must be fully ready before my arrival.</p>
-    <p style="margin-top: 10px;">Waiting time over 15 minutes attracts extra charges.</p>
-  </div>
-
-  <div class="policy-section">
-    <h3>Studio Rules</h3>
-    <ul style="margin: 10px 0; padding-left: 20px;">
-      <li>No touching of products without consent.</li>
-      <li>No toilet use.</li>
-      <li>Personal items must not remain beyond 24 hours (₦500/CFA per day applies).</li>
-    </ul>
-  </div>
-
-  <div class="policy-section">
-    <h3>Visitors</h3>
-    <p>Only one person is allowed per appointment.</p>
-    <p style="margin-top: 10px;">No children allowed unless supervised.</p>
-  </div>
-
-  <div class="policy-section">
-    <h3>Enquiries</h3>
-    <p>No voice notes. Written messages only.</p>
-  </div>
-
-  <div class="policy-section">
-    <h3>Contact Lenses</h3>
-    <p>Clients must wear lenses themselves.</p>
-    <p style="margin-top: 10px;">If I assist, any outcome is at the client’s risk.</p>
-  </div>
-</div>
+    <section class="gallery section-pad">
+      <div class="container">
+        <div class="gallery-heading" data-reveal>
+          <div><p class="eyebrow">Selected work</p><h2 class="section-title">The LMR <em>finish.</em></h2></div>
+          <div class="gallery-controls" aria-label="Gallery controls"><button class="icon-button" id="prevBtn" type="button" aria-label="View previous looks"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"></path></svg></button><button class="icon-button" id="nextBtn" type="button" aria-label="View more looks"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg></button></div>
+        </div>
       </div>
-    </div>
-  </section>
+      <div class="gallery-rail" id="galleryRail" tabindex="0" aria-label="LMR Studio portfolio">
+        <figure class="gallery-card gallery-card-tall"><img src="/images/gallery/photo_2026-01-08_22-44-20.jpg" alt="Glossy soft glam by LMR Studio" width="960" height="1280" loading="lazy"><figcaption><span>Soft luminosity</span><small>01 / Cotonou</small></figcaption></figure>
+        <figure class="gallery-card"><img src="/images/gallery/photo_2026-01-08_22-44-21.jpg" alt="Defined glam makeup by LMR Studio" width="693" height="1179" loading="lazy"><figcaption><span>Defined glow</span><small>02 / Studio</small></figcaption></figure>
+        <figure class="gallery-card gallery-card-tall"><img src="/images/gallery/photo_2026-01-09_00-35-03.jpg" alt="Deep lip evening glam by LMR Studio" width="711" height="1182" loading="lazy"><figcaption><span>After dark</span><small>03 / Full glam</small></figcaption></figure>
+      </div>
+      <div class="container gallery-footer" data-reveal><p>A small selection from our recent work.</p><a href="/gallery/" class="btn btn-primary">View full portfolio</a></div>
+    </section>
+
+    <section class="home-cta section-dark">
+      <div class="container home-cta-inner" data-reveal>
+        <div><p class="eyebrow">Your appointment</p><h2>Ready for your <em>LMR moment?</em></h2><p>Choose your look, preferred date, and service. We will confirm your appointment personally on WhatsApp.</p></div>
+        <a href="/booking/" class="btn btn-light">Book your look</a>
+      </div>
+    </section>
+  </main>
 
   <footer class="footer">
     <div class="container">
-      <div class="footer-content">
-        <div class="footer-brand">
-          <h3>LMRSTUDIO</h3>
-          <p>Where Beauty Meets Artistry</p>
-        </div>
-        <ul class="nav-menu" id="footerNav">
-  <li><a href="/" class="nav-link">Home</a></li>
-  <li><a href="/about/" class="nav-link">About</a></li>
-  <li><a href="/services/" class="nav-link">Services</a></li>
-  <li><a href="/pricing/" class="nav-link">Pricing</a></li>
-  <li><a href="/gallery/" class="nav-link">Gallery</a></li>
-  <li><a href="/booking/" class="nav-link">Booking</a></li>
-  <li><a href="/contact/" class="nav-link">Contact</a></li>
-  <li><a href="/policy/" class="nav-link">Policy</a></li>
-</ul>
-<div class="footer-column">
-            <h4>Contact</h4>
-            <ul>
-              <li>Cotonou, Benin Republic</li>
-              <li>+229 01 90 14 62 36</li>
-              <li>Lamourp23@gmail.com</li>
-            </ul>
-          </div>
+      <div class="footer-top">
+        <div class="footer-brand"><a class="logo logo-footer" href="/"><span class="logo-mark">LMR</span><span class="logo-word">Studio</span></a><p>Beauty, refined.<br>Confidence, revealed.</p></div>
+        <div class="footer-links">
+          <div class="footer-column"><h3>Explore</h3><a href="/about/">Studio</a><a href="/services/">Services</a><a href="/gallery/">Work</a><a href="/pricing/">Pricing</a></div>
+          <div class="footer-column"><h3>Connect</h3><a href="/booking/">Book a look</a><a href="/contact/">Contact</a><a href="https://www.instagram.com/makeupartist_in_ctown?igsh=MTRoZXAwamJlaTd3cA==" target="_blank" rel="noopener noreferrer">Instagram ↗</a><a href="https://www.tiktok.com/@makeupartistinctown?_r=1&_t=ZS-920gHdDhcRO" target="_blank" rel="noopener noreferrer">TikTok ↗</a></div>
+          <div class="footer-column"><h3>Find us</h3><span>Cotonou</span><span>Benin Republic</span><a href="tel:+2290190146236">+229 01 90 14 62 36</a></div>
         </div>
       </div>
-      <div class="footer-bottom">
-        <p>&copy; 2024 LMRSTUDIO. All rights reserved.</p>
-      </div>
+      <div class="footer-bottom"><p>© <span id="currentYear">2026</span> LMR Studio. All rights reserved.</p><a href="/policy/">Booking policy</a><span>Made with intention in Cotonou.</span></div>
     </div>
   </footer>
+
   <script type="module" src="/main.js"></script>
 </body>
 </html>

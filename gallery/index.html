@@ -3,37 +3,67 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Portfolio Gallery - LMRSTUDIO Professional Makeup Transformations">
-  <title>Gallery - LMRSTUDIO</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="Explore refined beauty looks and signature makeup transformations by LMR Studio in Cotonou.">
+  <meta name="theme-color" content="#f4efe9">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="LMR Studio">
+  <meta property="og:title" content="Makeup Portfolio | LMR Studio">
+  <meta property="og:description" content="Explore refined beauty looks and signature transformations by LMR Studio.">
+  <meta property="og:url" content="https://lmrstudio.vercel.app/gallery/">
+  <meta property="og:image" content="https://lmrstudio.vercel.app/images/lmr-social-share.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="LMR Studio: Beauty, refined. Confidence, revealed.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Makeup Portfolio | LMR Studio">
+  <meta name="twitter:description" content="Explore refined beauty looks and signature transformations by LMR Studio.">
+  <meta name="twitter:image" content="https://lmrstudio.vercel.app/images/lmr-social-share.png">
+  <title>Makeup Portfolio | LMR Studio</title>
+  <link rel="canonical" href="https://lmrstudio.vercel.app/gallery/">
+  <script>
+    (() => {
+      document.documentElement.classList.add('js')
+      let savedTheme = null
+      try { savedTheme = localStorage.getItem('lmr-theme') } catch {}
+      const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+      const theme = savedTheme || systemTheme
+      document.documentElement.dataset.theme = theme
+      document.querySelector('meta[name="theme-color"]')?.setAttribute('content', theme === 'dark' ? '#0d0b0c' : '#f4efe9')
+    })()
+  </script>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Manrope:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
 </head>
 <body>
-  <nav class="navbar" id="navbar">
+<a class="skip-link" href="#page-content">Skip to content</a>
+<header class="navbar" id="navbar">
     <div class="nav-container">
-      <div class="logo">LMRSTUDIO</div>
-      <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-    <ul class="nav-menu" id="navMenu">
-        <li><a href="/" class="nav-link">Home</a></li>
-        <li><a href="/about/" class="nav-link">About</a></li>
-        <li><a href="/services/" class="nav-link">Services</a></li>
-        <li><a href="/pricing/" class="nav-link">Pricing</a></li>
-        <li><a href="/gallery/" class="nav-link">Gallery</a></li>
-        <li><a href="/booking/" class="nav-link">Booking</a></li>
-        <li><a href="/contact/" class="nav-link">Contact</a></li>
-        <li><a href="/policy/" class="nav-link">Policy</a></li>
-      </ul>
+      <a class="logo" href="/" aria-label="LMR Studio home"><span class="logo-mark">LMR</span><span class="logo-word">Studio</span></a>
+      <nav class="nav-shell" aria-label="Primary navigation">
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="/about/" class="nav-link">Studio</a></li>
+          <li><a href="/services/" class="nav-link">Services</a></li>
+          <li><a href="/gallery/" class="nav-link">Work</a></li>
+          <li><a href="/pricing/" class="nav-link">Pricing</a></li>
+          <li><a href="/contact/" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">
+          <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41"></path></svg>
+          <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.2A8.6 8.6 0 0 1 9.8 3.5 8.6 8.6 0 1 0 20.5 14.2Z"></path></svg>
+        </button>
+        <a href="/booking/" class="nav-cta">Book a look</a>
+        <button class="mobile-toggle" id="mobileToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu"><span></span><span></span></button>
+      </div>
     </div>
-  </nav>
+  </header>
 
-  <main>
+  <main id="page-content">
     <section class="gallery">
       <div class="container">
         <div class="section-header">
@@ -44,50 +74,71 @@
 
         <div class="gallery-carousel">
           <div class="carousel-container">
-            <button class="carousel-btn prev" id="prevBtn" aria-label="Previous image">
+            <button class="carousel-btn prev" id="prevBtn" type="button" aria-label="Previous gallery item">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <polyline points="15 18 9 12 15 6"/>
               </svg>
             </button>
             <div class="carousel-track" id="carouselTrack">
               <div class="carousel-slide active">
-                <img src="/images/gallery/photo_1_2025-12-03_21-19-13.jpg" alt="Professional makeup transformation">
+                <img src="/images/gallery/lmr-look-copper-glam.jpg" alt="Copper-toned full glam makeup with glossy lips" width="1242" height="1656" fetchpriority="high" decoding="async">
               </div>
               <div class="carousel-slide">
-                <img src="/images/gallery/photo_1_2025-12-03_21-03-05.jpg" alt="Soft glam makeup look">
+                <img src="/images/gallery/lmr-look-soft-pink-glam.jpg" alt="Soft pink glam makeup with luminous skin" width="1170" height="1560" loading="lazy" decoding="async">
               </div>
               <div class="carousel-slide">
-                <img src="/images/gallery/photo_2026-01-08_22-44-18.jpg" alt="Studio makeup session">
+                <img src="/images/gallery/lmr-look-sunset-glam-front.jpg" alt="Sunset-toned glam makeup with sculpted cheeks" width="1242" height="1656" loading="lazy" decoding="async">
               </div>
               <div class="carousel-slide">
-                <img src="/images/gallery/photo_5_2025-12-03_21-03-05.jpg" alt="Baddie beat makeup">
+                <img src="/images/gallery/lmr-look-sunset-glam-profile.jpg" alt="Profile view of sunset-toned glam makeup" width="1260" height="1680" loading="lazy" decoding="async">
+              </div>
+              <div class="carousel-slide carousel-slide-video">
+                <video controls playsinline preload="metadata" poster="/images/gallery/lmr-look-copper-glam.jpg" aria-label="LMR Studio copper glam makeup video">
+                  <source src="/videos/gallery/lmr-gallery-look-01.mp4" type="video/mp4">
+                  Your browser does not support video playback.
+                </video>
+              </div>
+              <div class="carousel-slide carousel-slide-video">
+                <video controls playsinline preload="metadata" poster="/images/gallery/lmr-look-sunset-glam-front.jpg" aria-label="LMR Studio sunset glam makeup video">
+                  <source src="/videos/gallery/lmr-gallery-look-02.mp4" type="video/mp4">
+                  Your browser does not support video playback.
+                </video>
               </div>
               <div class="carousel-slide">
-                <img src="/images/gallery/photo_1_2025-12-04_13-53-14.jpg" alt="Bridal makeup look">
+                <img src="/images/gallery/photo_1_2025-12-04_13-53-14.jpg" alt="Meet the founder of LMR Studio" width="1852" height="2006" loading="lazy" decoding="async">
               </div>
               <div class="carousel-slide">
-                <img src="/images/gallery/photo_2026-01-08_22-44-20.jpg" alt="Smokey eye makeup">
+                <img src="/images/gallery/photo_1_2025-12-03_21-19-13.jpg" alt="Professional makeup transformation" width="960" height="1280" loading="lazy" decoding="async">
               </div>
               <div class="carousel-slide">
-                <img src="/images/gallery/photo_2026-01-08_22-44-21.jpg" alt="Natural makeup look">
+                <img src="/images/gallery/photo_1_2025-12-03_21-03-05.jpg" alt="Soft glam makeup look" width="960" height="1280" loading="lazy" decoding="async">
               </div>
               <div class="carousel-slide">
-              <img src="/images/gallery/photo_2026-01-08_22-44-22.jpg" alt="Bridal makeup look">
+                <img src="/images/gallery/photo_2026-01-08_22-44-18.jpg" alt="Studio makeup session" width="724" height="1070" loading="lazy" decoding="async">
+              </div>
+              <div class="carousel-slide">
+                <img src="/images/gallery/photo_2026-01-08_22-44-20.jpg" alt="Smoky eye makeup" width="960" height="1280" loading="lazy" decoding="async">
+              </div>
+              <div class="carousel-slide">
+                <img src="/images/gallery/photo_2026-01-08_22-44-21.jpg" alt="Natural makeup look" width="693" height="1179" loading="lazy" decoding="async">
+              </div>
+              <div class="carousel-slide">
+              <img src="/images/gallery/photo_2026-01-08_22-44-22.jpg" alt="Bridal makeup look" width="784" height="1078" loading="lazy" decoding="async">
             </div>
             <div class="carousel-slide">
-                <img src="/images/gallery/photo_2026-01-08_22-44-24.jpg" alt="Studio makeup session">
+                <img src="/images/gallery/photo_2026-01-08_22-44-24.jpg" alt="Studio makeup session" width="709" height="1184" loading="lazy" decoding="async">
                 </div>
                 <div class="carousel-slide">
-                <img src="/images/gallery/photo_2026-01-08_22-44-25.jpg" alt="Bridal makeup look">
+                <img src="/images/gallery/photo_2026-01-08_22-44-25.jpg" alt="Bridal makeup look" width="960" height="1228" loading="lazy" decoding="async">
                 </div>
                 <div class="carousel-slide">
-                <img src="/images/gallery/photo_2026-01-08_22-44-26.jpg" alt="Bridal makeup look">
+                <img src="/images/gallery/photo_2026-01-08_22-44-26.jpg" alt="Bridal makeup look" width="714" height="1076" loading="lazy" decoding="async">
                 </div>
                 <div class="carousel-slide">
-                <img src="/images/gallery/photo_2026-01-09_00-35-03.jpg" alt="Smokey eye makeup">
+                <img src="/images/gallery/photo_2026-01-09_00-35-03.jpg" alt="Smoky eye makeup" width="711" height="1182" loading="lazy" decoding="async">
                 </div>
             </div>
-            <button class="carousel-btn next" id="nextBtn" aria-label="Next image">
+            <button class="carousel-btn next" id="nextBtn" type="button" aria-label="Next gallery item">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <polyline points="9 18 15 12 9 6"/>
               </svg>
@@ -96,66 +147,60 @@
           <div class="carousel-dots" id="carouselDots"></div>
         </div>
 
-        <div style="margin-top: 60px; padding: 40px; background: #f9f7f4; border-radius: 8px;">
-          <h2>Our Portfolio Highlights</h2>
+        <section class="gallery-info-panel" aria-labelledby="portfolio-highlights-title">
+          <h2 id="portfolio-highlights-title">Our Portfolio Highlights</h2>
 
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 30px;">
-            <div style="text-align: center;">
-              <div style="font-size: 40px; margin-bottom: 10px;">✨</div>
-              <h3 style="color: #2a2a2a;">Soft Glam</h3>
+          <div class="portfolio-highlights">
+            <article class="portfolio-highlight">
+              <h3>Soft Glam</h3>
               <p>Natural, elegant looks for everyday and professional settings. Enhanced beauty that's timeless and sophisticated.</p>
-            </div>
+            </article>
 
-            <div style="text-align: center;">
-              <div style="font-size: 40px; margin-bottom: 10px;">💎</div>
-              <h3 style="color: #2a2a2a;">Bratz</h3>
+            <article class="portfolio-highlight">
+              <h3>Bratz</h3>
               <p>Bold, statement-making looks with dramatic features. Perfect for those who want to stand out and be noticed.</p>
-            </div>
+            </article>
 
-            <div style="text-align: center;">
-              <div style="font-size: 40px; margin-bottom: 10px;">🩷</div>
-              <h3 style="color: #2a2a2a;">Barbie</h3>
+            <article class="portfolio-highlight">
+              <h3>Barbie</h3>
               <p>Glamorous pink-toned looks with flawless finishes. Feminine, playful, and utterly fabulous.</p>
-            </div>
+            </article>
 
-            <div style="text-align: center;">
-              <div style="font-size: 40px; margin-bottom: 10px;">🖤</div>
-              <h3 style="color: #2a2a2a;">Dark/Smokey</h3>
+            <article class="portfolio-highlight">
+              <h3>Dark/Smokey</h3>
               <p>Sultry, dramatic looks for evening events. Sophisticated and mysteriously beautiful.</p>
-            </div>
+            </article>
 
-            <div style="text-align: center;">
-              <div style="font-size: 40px; margin-bottom: 10px;">🔥</div>
-              <h3 style="color: #2a2a2a;">Baddie Beat</h3>
+            <article class="portfolio-highlight">
+              <h3>Baddie Beat</h3>
               <p>Confident, bold looks with sharp definition. For anyone who wants to feel fierce and empowered.</p>
-            </div>
+            </article>
 
-            <div style="text-align: center;">
-              <div style="font-size: 40px; margin-bottom: 10px;">🎨</div>
-              <h3 style="color: #2a2a2a;">Custom Designs</h3>
+            <article class="portfolio-highlight">
+              <h3>Custom Designs</h3>
               <p>Unique, artistic looks created just for you. Your vision brought to life by our talented artists.</p>
-            </div>
+            </article>
           </div>
-        </div>
+        </section>
 
-        <div style="margin-top: 60px; padding: 40px; background: #f9f7f4; border-radius: 8px; text-align: center;">
+        <section class="gallery-booking-panel">
           <h2>See Yourself In Our Gallery</h2>
-          <p style="margin: 20px 0; font-size: 18px; color: #666;">Inspired by our work? Let's create your own stunning transformation</p>
+          <p>Inspired by our work? Let's create your own stunning transformation</p>
          <a href="/booking/" class="btn btn-primary">Book Your Transformation</a>
-        </div>
+        </section>
 
-        <div style="margin-top: 60px; padding: 40px; background: #f9f7f4; border-radius: 8px;">
-          <h2>Why Choose LMRSTUDIO?</h2>
-          <ul style="margin: 30px 0; padding-left: 20px; font-size: 16px; line-height: 1.8;">
-            <li style="margin: 15px 0;">✓ Professional makeup artists with years of experience</li>
-            <li style="margin: 15px 0;">✓ All skin tones beautifully enhanced</li>
-            <li style="margin: 15px 0;">✓ Premium products used for all applications</li>
-            <li style="margin: 15px 0;">✓ Personalized consultations for your unique style</li>
-            <li style="margin: 15px 0;">✓ Portfolio of stunning transformations</li>
-            <li style="margin: 15px 0;">✓ Studio and home service options</li>
-            <li style="margin: 15px 0;">✓ Affordable pricing without compromising quality</li>
+        <section class="gallery-info-panel gallery-reasons">
+          <h2>Why Choose LMR Studio?</h2>
+          <ul>
+            <li>Professional makeup artists with years of experience</li>
+            <li>All skin tones beautifully enhanced</li>
+            <li>Premium products used for all applications</li>
+            <li>Personalized consultations for your unique style</li>
+            <li>Portfolio of stunning transformations</li>
+            <li>Studio and home service options</li>
+            <li>Affordable pricing without compromising quality</li>
           </ul>
-        </div>
+        </section>
       </div>
     </section>
   </main>
@@ -164,7 +209,7 @@
     <div class="container">
       <div class="footer-content">
         <div class="footer-brand">
-          <h3>LMRSTUDIO</h3>
+          <h3>LMR Studio</h3>
           <p>Where Beauty Meets Artistry</p>
         </div>
         <div class="footer-links">
@@ -197,7 +242,7 @@
 </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2024 LMRSTUDIO. All rights reserved.</p>
+        <p>&copy; <span id="currentYear">2026</span> LMR Studio. All rights reserved.</p>
       </div>
     </div>
   </footer>

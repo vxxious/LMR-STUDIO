@@ -2,63 +2,95 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="About LMRSTUDIO - Professional Makeup and Glam Services in Cotonou, Benin Republic.">
-  <title>About Us - LMRSTUDIO</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="Discover the story, philosophy, and artist behind LMR Studio in Cotonou, Benin Republic.">
+  <meta name="theme-color" content="#f4efe9">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="LMR Studio">
+  <meta property="og:title" content="About LMR Studio">
+  <meta property="og:description" content="Meet the artistry and vision behind LMR Studio in Cotonou, Benin Republic.">
+  <meta property="og:url" content="https://lmrstudio.vercel.app/about/">
+  <meta property="og:image" content="https://lmrstudio.vercel.app/images/lmr-social-share.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="LMR Studio: Beauty, refined. Confidence, revealed.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="About LMR Studio">
+  <meta name="twitter:description" content="Meet the artistry and vision behind LMR Studio in Cotonou, Benin Republic.">
+  <meta name="twitter:image" content="https://lmrstudio.vercel.app/images/lmr-social-share.png">
+  <title>About LMR Studio | Makeup Artist in Cotonou</title>
+  <link rel="canonical" href="https://lmrstudio.vercel.app/about/">
+  <script>
+    (() => {
+      document.documentElement.classList.add('js')
+      let savedTheme = null
+      try { savedTheme = localStorage.getItem('lmr-theme') } catch {}
+      const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+      const theme = savedTheme || systemTheme
+      document.documentElement.dataset.theme = theme
+      document.querySelector('meta[name="theme-color"]')?.setAttribute('content', theme === 'dark' ? '#0d0b0c' : '#f4efe9')
+    })()
+  </script>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/style.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Manrope:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
 </head>
 <body>
- <nav class="navbar" id="navbar">
-  <div class="nav-container gen">
-    <div class="logo">LMRSTUDIO</div>
-    <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
-      <span></span><span></span><span></span>
-    </button>
-    <ul class="nav-menu" id="navMenu">
-      <li><a href="/" class="nav-link">Home</a></li>
-      <li><a href="/about/" class="nav-link">About</a></li>
-      <li><a href="/services/" class="nav-link">Services</a></li>
-      <li><a href="/pricing/" class="nav-link">Pricing</a></li>
-      <li><a href="/gallery/" class="nav-link">Gallery</a></li>
-      <li><a href="/booking/" class="nav-link">Booking</a></li>
-      <li><a href="/contact/" class="nav-link">Contact</a></li>
-      <li><a href="/policy/" class="nav-link">Policy</a></li>
-    </ul>
-  </div>
-</nav>
+<a class="skip-link" href="#page-content">Skip to content</a>
+<header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a class="logo" href="/" aria-label="LMR Studio home"><span class="logo-mark">LMR</span><span class="logo-word">Studio</span></a>
+      <nav class="nav-shell" aria-label="Primary navigation">
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="/about/" class="nav-link">Studio</a></li>
+          <li><a href="/services/" class="nav-link">Services</a></li>
+          <li><a href="/gallery/" class="nav-link">Work</a></li>
+          <li><a href="/pricing/" class="nav-link">Pricing</a></li>
+          <li><a href="/contact/" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">
+          <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41"></path></svg>
+          <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.2A8.6 8.6 0 0 1 9.8 3.5 8.6 8.6 0 1 0 20.5 14.2Z"></path></svg>
+        </button>
+        <a href="/booking/" class="nav-cta">Book a look</a>
+        <button class="mobile-toggle" id="mobileToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu"><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
 
 
-  <main>
+  <main id="page-content">
     <section class="about">
       <div class="container">
         <div class="section-header">
-          <h1 class="section-title">About LMRSTUDIO</h1>
+          <h1 class="section-title">About LMR Studio</h1>
           <div class="section-divider"></div>
         </div>
 
         <div class="about-content">
           <div class="about-text">
             <h2>Our Story</h2>
-            <p>LMRSTUDIO was founded with a passion for artistry and beauty. We believe that makeup is more than just cosmetics, it's an expression of individuality and confidence. Our mission is to help every client feel beautiful, empowered, and ready to conquer the world.</p>
+            <p>LMR Studio was founded with a passion for artistry and beauty. We believe makeup is more than cosmetics; it is an expression of individuality and confidence. Our mission is to help every client feel beautiful, empowered, and ready for every occasion.</p>
 
             <p>Based in Cotonou, Benin Republic, we've built a reputation for excellence, creativity, and dedication to our craft. From soft glam everyday looks to dramatic evening transformations, our team specializes in a diverse range of makeup styles tailored to each client's unique preferences and skin tone.</p>
 
             <h2>Our Philosophy</h2>
-            <p>At LMRSTUDIO, we believe that beauty is personal. We don't believe in one-size-fits-all makeup. Instead, we take time to understand your preferences, your skin type, and your vision. Whether you're preparing for a special event, a photoshoot, or simply want to treat yourself to a professional makeover, we're here to make it happen.</p>
+            <p>At LMR Studio, we believe beauty is personal. We take time to understand your preferences, skin type, and vision. Whether you're preparing for a special event, a photoshoot, or simply treating yourself to a professional makeover, we're here to make it happen.</p>
 
             <p>We use only premium, high-quality makeup products and stay up-to-date with the latest techniques and trends in the beauty industry. Our team is trained to work with all skin tones and makeup styles, ensuring everyone feels included and beautiful.</p>
 
-            <h2>Why Choose LMRSTUDIO?</h2>
-            <ul style="margin: 20px 0; padding-left: 20px;">
-              <li style="margin: 10px 0;">Expert makeup artists with years of experience</li>
-              <li style="margin: 10px 0;">Personalized consultations for each client</li>
-              <li style="margin: 10px 0;">Premium products and professional-grade tools</li>
-              <li style="margin: 10px 0;">Wide range of makeup styles from soft glam to dramatic</li>
-              <li style="margin: 10px 0;">Studio and home service options available</li>
-              <li style="margin: 10px 0;">Affordable pricing without compromising quality</li>
+            <h2>Why Choose LMR Studio?</h2>
+            <ul class="legacy-list">
+              <li>Expert makeup artists with years of experience</li>
+              <li>Personalized consultations for each client</li>
+              <li>Premium products and professional-grade tools</li>
+              <li>Wide range of makeup styles from soft glam to dramatic</li>
+              <li>Studio and home service options available</li>
+              <li>Affordable pricing without compromising quality</li>
             </ul>
           </div>
 
@@ -75,15 +107,15 @@
         </div>
         <div class="ceo-content">
           <div class="ceo-image">
-            <img src="/images/gallery/photo_1_2025-12-04_13-53-14.jpg" alt="LMRSTUDIO Founder">
+            <img src="/images/gallery/photo_1_2025-12-04_13-53-14.jpg" alt="Founder and makeup artist behind LMR Studio" width="1852" height="2006" loading="lazy" decoding="async">
           </div>
           <div class="ceo-info">
-            <h3>The Artist Behind LMRSTUDIO</h3>
-            <p>With an unwavering passion for beauty and artistry, our founder has transformed LMRSTUDIO into Cotonou's premier destination for professional makeup services. Every appointment is a masterpiece in the making, where technical skill meets creative vision.</p>
+            <h3>The Artist Behind LMR Studio</h3>
+            <p>With an unwavering passion for beauty and artistry, our founder has transformed LMR Studio into a trusted destination for professional makeup services in Cotonou. Every appointment brings technical skill and creative vision together.</p>
 
-            <p>Specializing in diverse makeup styles from understated soft glam to show-stopping dramatic looks, our founder brings personalized attention to every client. Continuous training in the latest makeup techniques and an commitment to premium products ensures flawless results every single time.</p>
+            <p>Specializing in diverse makeup styles from understated soft glam to show-stopping dramatic looks, our founder brings personalized attention to every client. Continuous training in the latest techniques and a commitment to premium products ensure polished results every time.</p>
 
-            <p>Based in Cotonou, Benin Republic, LMRSTUDIO has built an enviable reputation for excellence, creativity, and genuine care for each client. The mission is simple: help everyone look and feel absolutely beautiful.</p>
+            <p>Based in Cotonou, Benin Republic, LMR Studio is known for excellence, creativity, and genuine care for each client. The mission is simple: help everyone look and feel beautiful.</p>
           </div>
         </div>
       </div>
@@ -121,7 +153,7 @@
   <footer class="footer">
     <div class="container">
       <div class="footer-bottom">
-        <p>&copy; 2024 LMRSTUDIO. All rights reserved.</p>
+        <p>&copy; <span id="currentYear">2026</span> LMR Studio. All rights reserved.</p>
       </div>
     </div>
 

@@ -2,37 +2,67 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Pricing - LMRSTUDIO Affordable Luxury Makeup Services">
-  <title>Pricing - LMRSTUDIO</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="View LMR Studio makeup packages and pricing for studio and home appointments in Cotonou.">
+  <meta name="theme-color" content="#f4efe9">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="LMR Studio">
+  <meta property="og:title" content="Makeup Pricing | LMR Studio">
+  <meta property="og:description" content="View LMR Studio makeup packages and choose the finish for your next occasion.">
+  <meta property="og:url" content="https://lmrstudio.vercel.app/pricing/">
+  <meta property="og:image" content="https://lmrstudio.vercel.app/images/lmr-social-share.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="LMR Studio: Beauty, refined. Confidence, revealed.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Makeup Pricing | LMR Studio">
+  <meta name="twitter:description" content="View LMR Studio makeup packages and choose the finish for your next occasion.">
+  <meta name="twitter:image" content="https://lmrstudio.vercel.app/images/lmr-social-share.png">
+  <title>Makeup Pricing | LMR Studio</title>
+  <link rel="canonical" href="https://lmrstudio.vercel.app/pricing/">
+  <script>
+    (() => {
+      document.documentElement.classList.add('js')
+      let savedTheme = null
+      try { savedTheme = localStorage.getItem('lmr-theme') } catch {}
+      const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+      const theme = savedTheme || systemTheme
+      document.documentElement.dataset.theme = theme
+      document.querySelector('meta[name="theme-color"]')?.setAttribute('content', theme === 'dark' ? '#0d0b0c' : '#f4efe9')
+    })()
+  </script>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Manrope:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
 </head>
 <body>
-  <nav class="navbar" id="navbar">
+<a class="skip-link" href="#page-content">Skip to content</a>
+<header class="navbar" id="navbar">
     <div class="nav-container">
-      <div class="logo">LMRSTUDIO</div>
-      <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-     <ul class="nav-menu" id="navMenu">
-        <li><a href="/" class="nav-link">Home</a></li>
-        <li><a href="/about/" class="nav-link">About</a></li>
-        <li><a href="/services/" class="nav-link">Services</a></li>
-        <li><a href="/pricing/" class="nav-link">Pricing</a></li>
-        <li><a href="/gallery/" class="nav-link">Gallery</a></li>
-        <li><a href="/booking/" class="nav-link">Booking</a></li>
-        <li><a href="/contact/" class="nav-link">Contact</a></li>
-        <li><a href="/policy/" class="nav-link">Policy</a></li>
-      </ul>
+      <a class="logo" href="/" aria-label="LMR Studio home"><span class="logo-mark">LMR</span><span class="logo-word">Studio</span></a>
+      <nav class="nav-shell" aria-label="Primary navigation">
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="/about/" class="nav-link">Studio</a></li>
+          <li><a href="/services/" class="nav-link">Services</a></li>
+          <li><a href="/gallery/" class="nav-link">Work</a></li>
+          <li><a href="/pricing/" class="nav-link">Pricing</a></li>
+          <li><a href="/contact/" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">
+          <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41"></path></svg>
+          <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.2A8.6 8.6 0 0 1 9.8 3.5 8.6 8.6 0 1 0 20.5 14.2Z"></path></svg>
+        </button>
+        <a href="/booking/" class="nav-cta">Book a look</a>
+        <button class="mobile-toggle" id="mobileToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu"><span></span><span></span></button>
+      </div>
     </div>
-  </nav>
+  </header>
 
-  <main>
+  <main id="page-content">
     <section class="pricing">
       <div class="container">
         <div class="section-header">
@@ -91,39 +121,39 @@
           </div>
         </div>
 
-        <div style="margin-top: 60px; padding: 40px; background: #f9f7f4; border-radius: 8px;">
+        <div class="legacy-callout legacy-faq">
           <h2>Frequently Asked Questions</h2>
 
-          <div style="margin: 30px 0;">
-            <h4 style="color: #2a2a2a; margin-bottom: 10px;">What's included in each package?</h4>
+          <div class="legacy-faq-item">
+            <h4>What's included in each package?</h4>
             <p>Each package includes professional makeup application using premium products, professional consultation to understand your preferences, and guidance on maintaining your makeup throughout the day.</p>
           </div>
 
-          <div style="margin: 30px 0;">
-            <h4 style="color: #2a2a2a; margin-bottom: 10px;">Can I customize my booking?</h4>
+          <div class="legacy-faq-item">
+            <h4>Can I customize my booking?</h4>
             <p>Absolutely! We offer custom packages for group bookings, special events, and unique requests. Please contact us via WhatsApp for personalized quotes.</p>
           </div>
 
-          <div style="margin: 30px 0;">
-            <h4 style="color: #2a2a2a; margin-bottom: 10px;">How long does a session take?</h4>
+          <div class="legacy-faq-item">
+            <h4>How long does a session take?</h4>
             <p>Sessions typically range from 1 to 2 hours depending on the style complexity and your preferences. More intricate designs may require additional time.</p>
           </div>
 
-          <div style="margin: 30px 0;">
-            <h4 style="color: #2a2a2a; margin-bottom: 10px;">Do you offer group rates?</h4>
+          <div class="legacy-faq-item">
+            <h4>Do you offer group rates?</h4>
             <p>Yes! Special rates are available for bridal parties, group bookings, and corporate events. Contact us for a custom quote.</p>
           </div>
 
-          <div style="margin: 30px 0;">
-            <h4 style="color: #2a2a2a; margin-bottom: 10px;">What payment methods do you accept?</h4>
+          <div class="legacy-faq-item">
+            <h4>What payment methods do you accept?</h4>
             <p>We accept mobile money, bank transfers, and cash. A 70% deposit is required to secure your booking.</p>
           </div>
         </div>
 
-        <div style="margin-top: 60px; padding: 40px; background: #f9f7f4; border-radius: 8px; text-align: center;">
+        <div class="legacy-callout legacy-callout-centered">
           <h2>Special Offers</h2>
-          <p style="margin: 20px 0; font-size: 18px; color: #666;">First-time clients receive a 10% discount on their first booking!</p>
-          <p style="margin-bottom: 20px; color: #999;">Use the code WELCOME at checkout</p>
+          <p class="legacy-callout-copy">First-time clients receive a 10% discount on their first booking.</p>
+          <p class="legacy-muted">Use the code WELCOME when requesting your appointment.</p>
           <a href="/booking/" class="btn btn-primary">Book Your First Appointment</a>
         </div>
       </div>
@@ -134,7 +164,7 @@
     <div class="container">
       <div class="footer-content">
         <div class="footer-brand">
-          <h3>LMRSTUDIO</h3>
+          <h3>LMR Studio</h3>
           <p>Where Beauty Meets Artistry</p>
         </div>
       <div class="footer-links">
@@ -167,7 +197,7 @@
 </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2024 LMRSTUDIO. All rights reserved.</p>
+        <p>&copy; <span id="currentYear">2026</span> LMR Studio. All rights reserved.</p>
       </div>
     </div>
   </footer>
