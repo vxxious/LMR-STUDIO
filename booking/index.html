@@ -131,9 +131,23 @@
               <label for="serviceType">Service Type *</label>
               <select id="serviceType" name="serviceType" required>
                 <option value="">Select service type</option>
-                <option value="Student">Student (7,000 CFA)</option>
-                <option value="Standard">Standard (9,000 CFA)</option>
-                <option value="Home Service">Home Service (15,000 CFA)</option>
+                <optgroup label="Studio Session">
+                  <option value="Studio Student — 10,000 CFA">Student (10,000 CFA)</option>
+                  <option value="Studio Standard — 13,000 CFA">Standard (13,000 CFA)</option>
+                  <option value="Studio My-Lady — 15,000 CFA">My-Lady (15,000 CFA)</option>
+                </optgroup>
+                <optgroup label="Home Service">
+                  <option value="Home Service Student — 20,000 CFA">Student (20,000 CFA)</option>
+                  <option value="Home Service My-Lady — 25,000 CFA">My-Lady (25,000 CFA)</option>
+                </optgroup>
+                <optgroup label="Group Booking">
+                  <option value="Aso-Ebi Glam — 15,000 CFA per person (group of 5)">Aso-Ebi Glam — group of 5 (15,000 CFA per person)</option>
+                  <option value="Girls' Night — 15,000 CFA per person (group of 5)">Girls' Night — group of 5 (15,000 CFA per person)</option>
+                </optgroup>
+                <optgroup label="Contact Lenses">
+                  <option value="14 mm contact lenses — 7,000 CFA">14 mm size (7,000 CFA)</option>
+                  <option value="17 mm contact lenses — 11,000 CFA">17 mm size (11,000 CFA)</option>
+                </optgroup>
               </select>
             </div>
 
